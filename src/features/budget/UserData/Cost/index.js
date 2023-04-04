@@ -94,14 +94,14 @@ export default () => {
         Koszt
         <List>
           {costs.map((cost) => (
-            <li key={cost.id}>
+            <p key={cost.id}>
               {cost.content}&nbsp;:&nbsp;{cost.amount}
-            </li>
+            </p>
           ))}
         </List>
       </RenderList>
       <p>
-        Koszty wynoszą :<button>Oblicz bilans</button>
+        {/* Koszty wynoszą :<button>Oblicz bilans</button> */}
         {/* {Object.values(costs).map((cost) => cost.amount)} */}
         {/* {Object.values(costs).map((cost) => (
           <li key={cost.id}>{cost.amount}</li>
