@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import { Form } from "../Form";
 import { Input } from "../Input";
 import { Button } from "../Button";
 import { RenderList } from "../RenderList";
+import { Paragraph } from "../Paragraph";
 
 export default () => {
   const dispatch = useDispatch();
@@ -32,6 +33,16 @@ export default () => {
       addIncome({ amount: newIncome, content: newIncomeContent, id: nanoid() })
     );
   };
+
+  let [sum, setSum] = useState(0);
+  const calculate = () => {
+    setSum((sum) => {
+      for (const income in incomes) {
+        sum = sum + incomes[income];
+      }
+    });
+  };
+
   return (
     <>
       <Form onSubmit={onFormSubmit}>
@@ -48,16 +59,19 @@ export default () => {
         />
         <Button>Dodaj przychód</Button>
       </Form>
-
       <RenderList>
-        Przychód miesięczny
+        Przychód
         {incomes.map((income) => (
-          <p key={income.id}>
+          <Paragraph key={income.id}>
             {income.content}&nbsp;:&nbsp;
             {income.amount}
-          </p>
+          </Paragraph>
         ))}
+        <Paragraph>Razem: {sum}</Paragraph>
       </RenderList>
+      <p>
+        <button onClick={() => calculate()}>Przychód łącznie</button>
+      </p>
     </>
   );
 };
