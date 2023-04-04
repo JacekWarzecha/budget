@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/budget/static/js/main.8037d8b8.js",
+    "static/js/787.bfbc04eb.chunk.js": "/budget/static/js/787.bfbc04eb.chunk.js",
+    "index.html": "/budget/index.html",
+    "main.8037d8b8.js.map": "/budget/static/js/main.8037d8b8.js.map",
+    "787.bfbc04eb.chunk.js.map": "/budget/static/js/787.bfbc04eb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.8037d8b8.js"
+  ]
+}
