@@ -30,18 +30,20 @@ export default () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(
-      addIncome({ amount: newIncome, content: newIncomeContent, id: nanoid() })
+      addIncome({ amount: +newIncome, content: newIncomeContent, id: nanoid() })
     );
+    setNewIncomeContent("");
+    setNewIncome("");
   };
 
-  let [sum, setSum] = useState(0);
-  const calculate = () => {
-    setSum((sum) => {
-      for (const income in incomes) {
-        sum = sum + incomes[income];
-      }
-    });
-  };
+  const [incomesSum, setIncomesSum] = useState(0);
+
+  const calculateIncomesSum = () =>
+    incomes.reduce((a, b) => (a = a + b.amount), 0);
+
+  useEffect(() => {
+    setIncomesSum(calculateIncomesSum);
+  }, [incomes]);
 
   return (
     <>
@@ -50,12 +52,17 @@ export default () => {
           value={newIncomeContent}
           onChange={onInputContentChange}
           placeholder=" Nazwa przychodu"
+          required
         />
         <Input
           type="number"
           value={newIncome}
           onChange={onInputChange}
-          placeholder="Wysokość przychodu"
+          placeholder=" Wysokość przychodu"
+          required
+          pattern="[0-9]"
+          step="1"
+          min="1"
         />
         <Button>Dodaj przychód</Button>
       </Form>
@@ -67,10 +74,11 @@ export default () => {
             {income.amount}
           </Paragraph>
         ))}
-        <Paragraph>Razem: {sum}</Paragraph>
+        <Paragraph>Razem: {incomesSum}</Paragraph>
+        <Paragraph></Paragraph>
       </RenderList>
       <p>
-        <button onClick={() => calculate()}>Przychód łącznie</button>
+        {/* <button onClick={() => calculateIncomesSum()}>Przychód łącznie</button> */}
       </p>
     </>
   );
