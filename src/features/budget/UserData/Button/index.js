@@ -5,3 +5,5 @@ export const Button = styled.button`
   max-width: 100%;
   font-size: 20px;
 `;
+
+export const ButtonDelete = styled.button``;

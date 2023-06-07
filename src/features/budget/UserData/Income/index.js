@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { addIncome } from "../../budgetSlice";
-import { selectIncomes } from "../../budgetSlice";
+import { addIncome, deleteIncome, selectIncomes } from "../../budgetSlice";
 import { Form } from "../Form";
 import { Input } from "../Input";
-import { Button } from "../Button";
+import { Button, ButtonDelete } from "../Button";
 import { RenderList } from "../RenderList";
-import { Paragraph } from "../Paragraph";
+import { ItemWrapper } from "../Paragraph";
+import { Content } from "../styled/Content";
+import { Amount } from "../styled/Amount";
+import { DateAdded } from "../styled/DateAdded";
 
 export default () => {
   const dispatch = useDispatch();
@@ -30,7 +32,12 @@ export default () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(
-      addIncome({ amount: +newIncome, content: newIncomeContent, id: nanoid() })
+      addIncome({
+        amount: +newIncome,
+        content: newIncomeContent,
+        id: nanoid(),
+        date: new Date(),
+      })
     );
     setNewIncomeContent("");
     setNewIncome("");
@@ -69,17 +76,20 @@ export default () => {
       <RenderList>
         Przychód
         {incomes.map((income) => (
-          <Paragraph key={income.id}>
-            {income.content}&nbsp;:&nbsp;
-            {income.amount}
-          </Paragraph>
+          <ItemWrapper key={income.id}>
+            <Content>{income.content}</Content>
+            <Amount>{income.amount}</Amount>
+            <DateAdded>{income.date.toLocaleDateString()}</DateAdded>
+            <ButtonDelete onClick={() => dispatch(deleteIncome())}>
+              Usuń
+            </ButtonDelete>
+          </ItemWrapper>
         ))}
-        <Paragraph>Razem: {incomesSum}</Paragraph>
-        <Paragraph></Paragraph>
+        <ItemWrapper>Razem: {incomesSum}</ItemWrapper>
       </RenderList>
-      <p>
-        {/* <button onClick={() => calculateIncomesSum()}>Przychód łącznie</button> */}
-      </p>
+      {/* <p>
+        <button onClick={() => calculateIncomesSum()}>Przychód łącznie</button>
+      </p> */}
     </>
   );
 };
