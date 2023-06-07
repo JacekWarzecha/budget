@@ -9,7 +9,10 @@ import { Form } from "../Form";
 import { Input } from "../Input";
 import { Button, ButtonDelete } from "../Button";
 import { RenderList } from "../RenderList";
-import { ItemWrapper } from "../Paragraph";
+import { ItemWrapper } from "../ItemWrapper";
+import { Content } from "../styled/Content";
+import { Amount } from "../styled/Amount";
+import { DateAdded } from "../styled/DateAdded";
 
 export default () => {
   const dispatch = useDispatch();
@@ -30,7 +33,12 @@ export default () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(
-      addCost({ amount: +newCosts, content: newCostsContent, id: nanoid() })
+      addCost({
+        amount: +newCosts,
+        content: newCostsContent,
+        id: nanoid(),
+        date: new Date(),
+      })
     );
     setNewCosts("");
     setnewCostsContent("");
@@ -43,35 +51,6 @@ export default () => {
   useEffect(() => {
     setCostsSum(calculateCostsSum);
   }, [costs]);
-
-  // let sum = 0;
-  // const costsResult = () => {
-  //   for (let i = 0; i < costs.length; i++) {
-  //     sum = sum + costs[i];
-  //   }
-  // };
-
-  // const tablica = [25, 10, 25];
-  // let sum = 0;
-
-  // const tablicaResult = () => {
-  //   for (let i in tablica) {
-  //     sum += tablica[i];
-  //     console.log(+sum);
-  //   }
-  // };
-  // tablicaResult();
-
-  // const [result, setResult] = useState();
-
-  // const calculateCosts = () => {
-  //   setResult
-  //   let sum = 0;
-  //   for (let cost of costs) {
-  //     sum = sum + costs[cost];
-  //     console.log(sum);
-  //   }
-  // };
 
   // const calculateResult = (a, b) => {
   //   const result = a - b;
@@ -99,21 +78,20 @@ export default () => {
           step="1"
           min="1"
         />
-
         <Button>Dodaj koszt</Button>
       </Form>
       <RenderList>
         Koszt
-        <List>
-          {costs.map((cost) => (
-            <p key={cost.id}>
-              {cost.content}&nbsp;:&nbsp;{cost.amount}
-              <ButtonDelete onClick={() => dispatch(deleteCost())}>
-                Usuń
-              </ButtonDelete>
-            </p>
-          ))}
-        </List>
+        {costs.map((cost) => (
+          <ItemWrapper key={cost.id}>
+            <Content>{cost.content}</Content>
+            <Amount>{cost.amount}</Amount>
+            <DateAdded>{cost.date.toLocaleDateString()}</DateAdded>
+            <ButtonDelete onClick={() => dispatch(deleteCost())}>
+              Usuń
+            </ButtonDelete>
+          </ItemWrapper>
+        ))}
         <ItemWrapper>Razem: {costsSum}</ItemWrapper>
       </RenderList>
       <p>

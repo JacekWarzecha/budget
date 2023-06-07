@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addIncome, deleteIncome, selectIncomes } from "../../budgetSlice";
 import { Form } from "../Form";
 import { Input } from "../Input";
 import { Button, ButtonDelete } from "../Button";
 import { RenderList } from "../RenderList";
-import { ItemWrapper } from "../Paragraph";
+import { ItemWrapper } from "../ItemWrapper";
 import { Content } from "../styled/Content";
 import { Amount } from "../styled/Amount";
 import { DateAdded } from "../styled/DateAdded";
@@ -36,7 +35,7 @@ export default () => {
         amount: +newIncome,
         content: newIncomeContent,
         id: nanoid(),
-        date: new Date(),
+        // date: new Date(),
       })
     );
     setNewIncomeContent("");
@@ -79,13 +78,15 @@ export default () => {
           <ItemWrapper key={income.id}>
             <Content>{income.content}</Content>
             <Amount>{income.amount}</Amount>
-            <DateAdded>{income.date.toLocaleDateString()}</DateAdded>
-            <ButtonDelete onClick={() => dispatch(deleteIncome())}>
+            {/* <DateAdded>{income.date.toLocaleDateString()}</DateAdded> */}
+            <ButtonDelete onClick={() => dispatch(deleteIncome(income.id))}>
               Usuń
             </ButtonDelete>
           </ItemWrapper>
         ))}
-        <ItemWrapper>Razem: {incomesSum}</ItemWrapper>
+        <ItemWrapper>
+          {incomesSum && <span>Razem: {incomesSum}</span>}
+        </ItemWrapper>
       </RenderList>
       {/* <p>
         <button onClick={() => calculateIncomesSum()}>Przychód łącznie</button>
