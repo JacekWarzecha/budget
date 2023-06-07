@@ -6,4 +6,8 @@ export default configureStore({
     incomes: budgetReducer,
     costs: budgetReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
