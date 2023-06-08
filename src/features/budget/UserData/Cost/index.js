@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { addCost, deleteCost, selectIncomes } from "../../budgetSlice";
-import { selectCost } from "../../budgetSlice";
-import { List } from "./styled";
+import { useDispatch, useSelector } from "react-redux";
+import { addCost, deleteCost } from "../../costsSlice";
+import { selectCost } from "../../costsSlice";
+// import { List } from "./styled";
 import { Form } from "../Form";
 import { Input } from "../Input";
 import { Button, ButtonDelete } from "../Button";
@@ -17,7 +16,6 @@ import { DateAdded } from "../styled/DateAdded";
 export default () => {
   const dispatch = useDispatch();
   const { costs } = useSelector(selectCost);
-  const { incomes } = useSelector(selectIncomes);
 
   const [newCosts, setNewCosts] = useState("");
   const [newCostsContent, setnewCostsContent] = useState("");
@@ -37,7 +35,7 @@ export default () => {
         amount: +newCosts,
         content: newCostsContent,
         id: nanoid(),
-        date: new Date(),
+        // date: new Date(),
       })
     );
     setNewCosts("");
@@ -82,16 +80,17 @@ export default () => {
       </Form>
       <RenderList>
         Koszt
-        {costs.map((cost) => (
-          <ItemWrapper key={cost.id}>
-            <Content>{cost.content}</Content>
-            <Amount>{cost.amount}</Amount>
-            <DateAdded>{cost.date.toLocaleDateString()}</DateAdded>
-            <ButtonDelete onClick={() => dispatch(deleteCost())}>
-              Usuń
-            </ButtonDelete>
-          </ItemWrapper>
-        ))}
+        {costs &&
+          costs.map((cost) => (
+            <ItemWrapper key={cost.id}>
+              <Content>{cost.content}</Content>
+              <Amount>{cost.amount}</Amount>
+              <DateAdded>{cost.date.toLocaleDateString()}</DateAdded>
+              <ButtonDelete onClick={() => dispatch(deleteCost())}>
+                Usuń
+              </ButtonDelete>
+            </ItemWrapper>
+          ))}
         <ItemWrapper>Razem: {costsSum}</ItemWrapper>
       </RenderList>
       <p>

@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
-import { selectIncomes, selectCost } from "../../budgetSlice";
+// import { useSelector } from "react-redux";
+// import { selectIncomes, selectCost } from "../../budgetSlice";
 export default () => {
-  const { incomes } = useSelector(selectIncomes);
-  const costs = useSelector(selectCost);
+  // const { incomes } = useSelector(selectIncomes);
+  // const costs = useSelector(selectCost);
 
   return (
     <>

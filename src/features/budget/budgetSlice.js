@@ -5,7 +5,6 @@ const budgetSlice = createSlice({
   name: "budget",
   initialState: {
     incomes: getIncomesFromLocalStorage(),
-    costs: [],
   },
   reducers: {
     addIncome: ({ incomes }, { payload }) => {
@@ -15,21 +14,32 @@ const budgetSlice = createSlice({
       const index = incomes.indexOf(({ id }) => id === incomesId);
       incomes.splice(index);
     },
-    addCost: ({ costs }, { payload }) => {
-      costs.push(payload);
+    fetchExampleIncomes: (state) => {
+      state.loading = true;
     },
-    deleteCost: ({ costs }, { payload }) => {
-      const index = costs.findIndex(({ id }) => id === payload);
-      costs.splice(index);
+    fetchExampleIncomesSuccess: (state, { payload: incomes }) => {
+      state.tasks = incomes;
+      state.loading = false;
     },
+    fetchExampleIncomesError: (state) => {
+      state.loading = false;
+    },
+    // saveIncomesInLocalStorage: (_, { payload }) => {
+    //   localStorage.setItem("incomes", JSON.stringify(payload));
+    // },
   },
 });
 
-export const { addIncome, deleteIncome, addCost, deleteCost } =
-  budgetSlice.actions;
+export const {
+  addIncome,
+  deleteIncome,
+  fetchExampleIncomes,
+  fetchExampleIncomesSuccess,
+  fetchExampleIncomesError,
+} = budgetSlice.actions;
 
 export default budgetSlice.reducer;
 
-export const selectIncomes = (state) => state.incomes;
+const selectIncomesState = (state) => state.incomes;
 
-export const selectCost = (state) => state.costs;
+export const selectIncomes = (state) => selectIncomesState(state).incomes;

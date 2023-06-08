@@ -1,16 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
 import budgetReducer from "./features/budget/budgetSlice";
-import createSagaMiddleware from "redux-saga";
+import costsReducer from "./features/budget/costsSlice";
+import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default configureStore({
+const store = configureStore({
   reducer: {
     incomes: budgetReducer,
-    costs: budgetReducer,
+    costs: costsReducer,
   },
   middleware: [sagaMiddleware],
 });
 
 sagaMiddleware.run(rootSaga);
+
+export default store;

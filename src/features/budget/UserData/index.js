@@ -1,5 +1,5 @@
 import Section from "../../../common/Section";
-import Income from "./Income";
+import { Income } from "./Income";
 import Cost from "./Cost";
 import Result from "./Result";
 

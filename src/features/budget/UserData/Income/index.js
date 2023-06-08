@@ -9,9 +9,10 @@ import { RenderList } from "../RenderList";
 import { ItemWrapper } from "../ItemWrapper";
 import { Content } from "../styled/Content";
 import { Amount } from "../styled/Amount";
-import { DateAdded } from "../styled/DateAdded";
+import { fetchExampleIncomes } from "../../budgetSlice";
+// import { DateAdded } from "../styled/DateAdded";
 
-export default () => {
+export const Income = () => {
   const dispatch = useDispatch();
   const { incomes } = useSelector(selectIncomes);
 
@@ -31,16 +32,18 @@ export default () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(
-      addIncome({
-        amount: +newIncome,
-        content: newIncomeContent,
-        id: nanoid(),
-        // date: new Date(),
-      })
+      addIncome([
+        {
+          amount: +newIncome,
+          content: newIncomeContent,
+          id: nanoid(),
+        },
+      ])
     );
     setNewIncomeContent("");
     setNewIncome("");
   };
+  // date: new Date(),
 
   const [incomesSum, setIncomesSum] = useState(0);
 
@@ -48,8 +51,10 @@ export default () => {
     incomes.reduce((a, b) => (a = a + b.amount), 0);
 
   useEffect(() => {
-    setIncomesSum(calculateIncomesSum);
+    setIncomesSum(calculateIncomesSum());
   }, [incomes]);
+
+  console.log(incomes.isArray);
 
   return (
     <>
@@ -71,21 +76,26 @@ export default () => {
           min="1"
         />
         <Button>Dodaj przychód</Button>
+        <Button onClick={() => dispatch(fetchExampleIncomes())}>
+          pobierz pd income
+        </Button>
       </Form>
       <RenderList>
         Przychód
-        {incomes.map((income) => (
-          <ItemWrapper key={income.id}>
-            <Content>{income.content}</Content>
-            <Amount>{income.amount}</Amount>
-            {/* <DateAdded>{income.date.toLocaleDateString()}</DateAdded> */}
-            <ButtonDelete onClick={() => dispatch(deleteIncome(income.id))}>
-              Usuń
-            </ButtonDelete>
-          </ItemWrapper>
-        ))}
+        {incomes &&
+          incomes.map((income, index) => (
+            <ItemWrapper key={index}>
+              <Content>{income.content}</Content>
+              <Amount>{income.amount}</Amount>
+              {/* <DateAdded>{income.date.toLocaleDateString()}</DateAdded> */}
+              <ButtonDelete onClick={() => dispatch(deleteIncome(income.id))}>
+                Usuń
+              </ButtonDelete>
+            </ItemWrapper>
+          ))}
         <ItemWrapper>
-          {incomesSum && <span>Razem: {incomesSum}</span>}
+          Razem: {incomesSum}
+          {/* {incomesSum !== undefined && <span>Razem: {incomesSum}</span>} */}
         </ItemWrapper>
       </RenderList>
       {/* <p>
