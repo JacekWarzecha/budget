@@ -76,17 +76,16 @@ export const Income = () => {
           min="1"
         />
         <Button>Dodaj przychód</Button>
-        <Button onClick={() => dispatch(fetchExampleIncomes())}>
-          pobierz pd income
-        </Button>
       </Form>
+      <Button onClick={() => dispatch(fetchExampleIncomes())}>
+        pobierz pd income
+      </Button>
       <RenderList>
         Przychód
-        {incomes?.map((income, index) => (
-          <ItemWrapper key={index}>
+        {incomes?.map((income) => (
+          <ItemWrapper key={income.id}>
             <Content>{income.content}</Content>
             <Amount>{income.amount}</Amount>
-            {/* <DateAdded>{income.date.toLocaleDateString()}</DateAdded> */}
             <ButtonDelete onClick={() => dispatch(deleteIncome(income.id))}>
               Usuń
             </ButtonDelete>
@@ -100,6 +99,7 @@ export const Income = () => {
       <p>
         <button onClick={() => calculateIncomesSum()}>Przychód łącznie</button>
       </p>
+      {/* <DateAdded>{income.date.toLocaleDateString()}</DateAdded> */}
     </>
   );
 };

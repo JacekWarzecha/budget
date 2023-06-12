@@ -11,9 +11,9 @@ const incomesSlice = createSlice({
       incomes.push(income);
     },
 
-    deleteIncome: ({ incomes }, { payload: incomesId }) => {
-      const index = incomes.indexOf(({ id }) => id === incomesId);
-      incomes.splice(index);
+    deleteIncome: ({ incomes }, { payload: incomeId }) => {
+      const index = incomes.findIndex(({ id }) => id === incomeId);
+      incomes.splice(index, 1);
     },
     fetchExampleIncomes: (state) => {
       state.loading = true;
@@ -25,9 +25,6 @@ const incomesSlice = createSlice({
     fetchExampleIncomesError: (state) => {
       state.loading = false;
     },
-    // saveIncomesInLocalStorage: (_, { payload }) => {
-    //   localStorage.setItem("incomes", JSON.stringify(payload));
-    // },
   },
 });
 
@@ -41,6 +38,8 @@ export const {
 
 export default incomesSlice.reducer;
 
-const selectIncomesState = (state) => state.incomes;
+export const selectIncomes = (state) => state.incomes;
 
-export const selectIncomes = (state) => selectIncomesState(state).incomes;
+// const selectIncomesState = (state) => state.incomes;
+
+// export const selectIncomes = (state) => selectIncomesState(state).incomes;
