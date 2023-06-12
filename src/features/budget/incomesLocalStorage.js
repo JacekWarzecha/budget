@@ -5,3 +5,5 @@ export const saveIncomesInLocalStorage = (incomes) =>
 
 export const getIncomesFromLocalStorage = () =>
   JSON.parse(localStorage.getItem(localStoragekey)) || [];
+
+// localStorage.clear();

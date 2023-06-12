@@ -27,8 +27,8 @@ function* fetchExampleIncomesHandler() {
 }
 
 function* saveIncomesInLocalStorageHandler() {
-  const incomes = yield select(selectIncomes);
-  yield call(saveIncomesInLocalStorage, incomes);
+  const { incomes } = yield select(selectIncomes);
+  yield call(saveIncomesInLocalStorage, { incomes });
 }
 
 export function* incomesSaga() {

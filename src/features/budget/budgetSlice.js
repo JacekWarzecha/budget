@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getIncomesFromLocalStorage } from "./incomesLocalStorage";
 
-const budgetSlice = createSlice({
-  name: "budget",
+const incomesSlice = createSlice({
+  name: "incomes",
   initialState: {
     incomes: getIncomesFromLocalStorage(),
   },
   reducers: {
-    addIncome: ({ incomes }, { payload }) => {
-      incomes.push(payload);
+    addIncome: ({ incomes }, { payload: income }) => {
+      incomes.push(income);
     },
+
     deleteIncome: ({ incomes }, { payload: incomesId }) => {
       const index = incomes.indexOf(({ id }) => id === incomesId);
       incomes.splice(index);
@@ -36,9 +37,9 @@ export const {
   fetchExampleIncomes,
   fetchExampleIncomesSuccess,
   fetchExampleIncomesError,
-} = budgetSlice.actions;
+} = incomesSlice.actions;
 
-export default budgetSlice.reducer;
+export default incomesSlice.reducer;
 
 const selectIncomesState = (state) => state.incomes;
 

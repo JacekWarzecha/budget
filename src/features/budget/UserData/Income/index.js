@@ -32,13 +32,11 @@ export const Income = () => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     dispatch(
-      addIncome([
-        {
-          amount: +newIncome,
-          content: newIncomeContent,
-          id: nanoid(),
-        },
-      ])
+      addIncome({
+        amount: +newIncome,
+        content: newIncomeContent,
+        id: nanoid(),
+      })
     );
     setNewIncomeContent("");
     setNewIncome("");
@@ -47,14 +45,16 @@ export const Income = () => {
 
   const [incomesSum, setIncomesSum] = useState(0);
 
-  const calculateIncomesSum = () =>
-    incomes.reduce((a, b) => (a = a + b.amount), 0);
+  const calculateIncomesSum = () => {
+    setIncomesSum(() => incomes.reduce((a, b) => (a = a + b.amount), 0));
+  };
 
-  useEffect(() => {
-    setIncomesSum(calculateIncomesSum());
-  }, [incomes]);
+  // const calculateIncomesSum = () =>
+  //   incomes.reduce((a, b) => (a = a + b.amount), 0);
 
-  console.log(incomes.isArray);
+  // useEffect(() => {
+  //   setIncomesSum(calculateIncomesSum());
+  // }, [incomes]);
 
   return (
     <>
@@ -82,25 +82,24 @@ export const Income = () => {
       </Form>
       <RenderList>
         Przychód
-        {incomes &&
-          incomes.map((income, index) => (
-            <ItemWrapper key={index}>
-              <Content>{income.content}</Content>
-              <Amount>{income.amount}</Amount>
-              {/* <DateAdded>{income.date.toLocaleDateString()}</DateAdded> */}
-              <ButtonDelete onClick={() => dispatch(deleteIncome(income.id))}>
-                Usuń
-              </ButtonDelete>
-            </ItemWrapper>
-          ))}
+        {incomes?.map((income, index) => (
+          <ItemWrapper key={index}>
+            <Content>{income.content}</Content>
+            <Amount>{income.amount}</Amount>
+            {/* <DateAdded>{income.date.toLocaleDateString()}</DateAdded> */}
+            <ButtonDelete onClick={() => dispatch(deleteIncome(income.id))}>
+              Usuń
+            </ButtonDelete>
+          </ItemWrapper>
+        ))}
         <ItemWrapper>
           Razem: {incomesSum}
           {/* {incomesSum !== undefined && <span>Razem: {incomesSum}</span>} */}
         </ItemWrapper>
       </RenderList>
-      {/* <p>
+      <p>
         <button onClick={() => calculateIncomesSum()}>Przychód łącznie</button>
-      </p> */}
+      </p>
     </>
   );
 };

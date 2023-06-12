@@ -46,9 +46,9 @@ export default () => {
 
   const calculateCostsSum = () => costs.reduce((a, b) => (a = a + b.amount), 0);
 
-  useEffect(() => {
-    setCostsSum(calculateCostsSum);
-  }, [costs]);
+  // useEffect(() => {
+  //   setCostsSum(calculateCostsSum);
+  // }, [costs]);
 
   // const calculateResult = (a, b) => {
   //   const result = a - b;
@@ -92,6 +92,9 @@ export default () => {
             </ItemWrapper>
           ))}
         <ItemWrapper>Razem: {costsSum}</ItemWrapper>
+        <p>
+          <button onClick={() => calculateCostsSum()}>Koszty łącznie</button>
+        </p>
       </RenderList>
       <p>
         {/* Koszty wynoszą :<button>Oblicz bilans</button> */}
