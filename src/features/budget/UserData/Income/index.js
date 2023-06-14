@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import { addIncome, deleteIncome, selectIncomes } from "../../budgetSlice";
+import { addIncome, deleteIncome, selectIncomes } from "../../incomesSlice";
 import { Form } from "../Form";
 import { Input } from "../Input";
 import { Button, ButtonDelete } from "../Button";
@@ -9,8 +9,8 @@ import { RenderList } from "../RenderList";
 import { ItemWrapper } from "../ItemWrapper";
 import { Content } from "../styled/Content";
 import { Amount } from "../styled/Amount";
-import { fetchExampleIncomes } from "../../budgetSlice";
-// import { DateAdded } from "../styled/DateAdded";
+import { fetchExampleIncomes } from "../../incomesSlice";
+import { DateAdded } from "../styled/DateAdded";
 
 export const Income = () => {
   const dispatch = useDispatch();
@@ -36,12 +36,13 @@ export const Income = () => {
         amount: +newIncome,
         content: newIncomeContent,
         id: nanoid(),
+        date: new Date().toLocaleDateString(),
       })
     );
     setNewIncomeContent("");
     setNewIncome("");
   };
-  // date: new Date(),
+  //
 
   const [incomesSum, setIncomesSum] = useState(0);
 
@@ -86,6 +87,7 @@ export const Income = () => {
           <ItemWrapper key={income.id}>
             <Content>{income.content}</Content>
             <Amount>{income.amount}</Amount>
+            {income.date && <DateAdded>{income.date}</DateAdded>}
             <ButtonDelete onClick={() => dispatch(deleteIncome(income.id))}>
               Usuń
             </ButtonDelete>
@@ -99,7 +101,6 @@ export const Income = () => {
       <p>
         <button onClick={() => calculateIncomesSum()}>Przychód łącznie</button>
       </p>
-      {/* <DateAdded>{income.date.toLocaleDateString()}</DateAdded> */}
     </>
   );
 };

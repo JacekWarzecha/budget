@@ -6,14 +6,14 @@ import {
   delay,
   put,
 } from "redux-saga/effects";
-import { selectIncomes } from "./budgetSlice";
+import { selectIncomes } from "./incomesSlice";
 import { saveIncomesInLocalStorage } from "./incomesLocalStorage";
 import { getExampleIncomes } from "./UserData/getExampleIncomes";
 import {
   fetchExampleIncomes,
   fetchExampleIncomesSuccess,
   fetchExampleIncomesError,
-} from "./budgetSlice";
+} from "./incomesSlice";
 
 function* fetchExampleIncomesHandler() {
   try {
