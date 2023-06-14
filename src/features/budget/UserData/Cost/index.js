@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { addCost, deleteCost } from "../../costsSlice";
-import { selectCost } from "../../costsSlice";
+import { selectCosts } from "../../costsSlice";
 // import { List } from "./styled";
 import { Form } from "../Form";
 import { Input } from "../Input";
@@ -15,7 +15,7 @@ import { DateAdded } from "../styled/DateAdded";
 
 export default () => {
   const dispatch = useDispatch();
-  const { costs } = useSelector(selectCost);
+  const { costs } = useSelector(selectCosts);
 
   const [newCosts, setNewCosts] = useState("");
   const [newCostsContent, setnewCostsContent] = useState("");
@@ -35,7 +35,7 @@ export default () => {
         amount: +newCosts,
         content: newCostsContent,
         id: nanoid(),
-        // date: new Date(),
+        date: new Date().toLocaleDateString(),
       })
     );
     setNewCosts("");
@@ -85,8 +85,8 @@ export default () => {
             <ItemWrapper key={cost.id}>
               <Content>{cost.content}</Content>
               <Amount>{cost.amount}</Amount>
-              <DateAdded>{cost.date.toLocaleDateString()}</DateAdded>
-              <ButtonDelete onClick={() => dispatch(deleteCost())}>
+              <DateAdded>{cost.date}</DateAdded>
+              <ButtonDelete onClick={() => dispatch(deleteCost(cost.id))}>
                 Usuń
               </ButtonDelete>
             </ItemWrapper>
