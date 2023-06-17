@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { addIncome, deleteIncome, selectIncomes } from "../../incomesSlice";
+import { calculateIncomesSum, selectIncomesSum } from "../../incomesSumSlice";
 import { Form } from "../Form";
 import { Input } from "../Input";
 import { Button, ButtonDelete } from "../Button";
@@ -15,6 +16,7 @@ import { DateAdded } from "../styled/DateAdded";
 export const Income = () => {
   const dispatch = useDispatch();
   const { incomes } = useSelector(selectIncomes);
+  const { incomesSum } = useSelector(selectIncomesSum);
 
   const [newIncomeContent, setNewIncomeContent] = useState("");
   const [newIncome, setNewIncome] = useState("");
@@ -44,19 +46,19 @@ export const Income = () => {
   };
   //
 
-  const [incomesSum, setIncomesSum] = useState(0);
+  // const [incomesSum, setIncomesSum] = useState(0);
 
-  const calculateIncomesSum = () => {
-    setIncomesSum(() => incomes.reduce((a, b) => (a = a + b.amount), 0));
-  };
+  // const calculateIncomesSum = () => {
+  //   setIncomesSum(() => incomes.reduce((a, b) => (a = a + b.amount), 0));
+  // };
 
   // const calculateIncomesSum = () =>
   //   incomes.reduce((a, b) => (a = a + b.amount), 0);
 
   // useEffect(() => {
-  //   setIncomesSum(calculateIncomesSum());
-  // }, [incomes]);
-
+  //   dispatch(calculateIncomesSum(incomes));
+  // }, [dispatch]);
+  console.log(incomesSum);
   return (
     <>
       <Form onSubmit={onFormSubmit}>
@@ -99,7 +101,9 @@ export const Income = () => {
         </ItemWrapper>
       </RenderList>
       <p>
-        <button onClick={() => calculateIncomesSum()}>Przychód łącznie</button>
+        <button onClick={() => dispatch(calculateIncomesSum(incomes))}>
+          Przychód łącznie
+        </button>
       </p>
     </>
   );
