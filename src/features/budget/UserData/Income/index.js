@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import { addIncome, deleteIncome, selectIncomes } from "../../incomesSlice";
-import { calculateIncomesSum, selectIncomesSum } from "../../incomesSumSlice";
+import {
+  addIncome,
+  deleteIncome,
+  calculateIncomesSum,
+  selectIncomes,
+  selectIncomesSum,
+} from "../../incomesSlice";
 import { Form } from "../Form";
 import { Input } from "../Input";
 import { Button, ButtonDelete } from "../Button";
@@ -44,21 +49,11 @@ export const Income = () => {
     setNewIncomeContent("");
     setNewIncome("");
   };
-  //
 
-  // const [incomesSum, setIncomesSum] = useState(0);
+  useEffect(() => {
+    dispatch(calculateIncomesSum(incomes));
+  }, [dispatch, incomes]);
 
-  // const calculateIncomesSum = () => {
-  //   setIncomesSum(() => incomes.reduce((a, b) => (a = a + b.amount), 0));
-  // };
-
-  // const calculateIncomesSum = () =>
-  //   incomes.reduce((a, b) => (a = a + b.amount), 0);
-
-  // useEffect(() => {
-  //   dispatch(calculateIncomesSum(incomes));
-  // }, [dispatch]);
-  console.log(incomesSum);
   return (
     <>
       <Form onSubmit={onFormSubmit}>
@@ -100,11 +95,11 @@ export const Income = () => {
           {/* {incomesSum !== undefined && <span>Razem: {incomesSum}</span>} */}
         </ItemWrapper>
       </RenderList>
-      <p>
+      {/* <p>
         <button onClick={() => dispatch(calculateIncomesSum(incomes))}>
           Przychód łącznie
         </button>
-      </p>
+      </p> */}
     </>
   );
 };

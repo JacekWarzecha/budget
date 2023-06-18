@@ -5,6 +5,7 @@ const incomesSlice = createSlice({
   name: "incomes",
   initialState: {
     incomes: getIncomesFromLocalStorage(),
+    incomesSum: +0,
   },
   reducers: {
     addIncome: ({ incomes }, { payload: income }) => {
@@ -14,6 +15,9 @@ const incomesSlice = createSlice({
     deleteIncome: ({ incomes }, { payload: incomeId }) => {
       const index = incomes.findIndex(({ id }) => id === incomeId);
       incomes.splice(index, 1);
+    },
+    calculateIncomesSum: (state, { payload: incomes }) => {
+      state.incomesSum = incomes.reduce((a, b) => (a = a + b.amount), 0);
     },
     fetchExampleIncomes: (state) => {
       state.loading = true;
@@ -31,6 +35,7 @@ const incomesSlice = createSlice({
 export const {
   addIncome,
   deleteIncome,
+  calculateIncomesSum,
   fetchExampleIncomes,
   fetchExampleIncomesSuccess,
   fetchExampleIncomesError,
@@ -39,6 +44,8 @@ export const {
 export default incomesSlice.reducer;
 
 export const selectIncomes = (state) => state.incomes;
+
+export const selectIncomesSum = (state) => state.incomesSum;
 
 // const selectIncomesState = (state) => state.incomes;
 
