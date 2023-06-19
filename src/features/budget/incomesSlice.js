@@ -23,7 +23,7 @@ const incomesSlice = createSlice({
       state.loading = true;
     },
     fetchExampleIncomesSuccess: (state, { payload: incomes }) => {
-      state.tasks = incomes;
+      state.incomes = incomes;
       state.loading = false;
     },
     fetchExampleIncomesError: (state) => {
