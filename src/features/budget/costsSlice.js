@@ -5,6 +5,7 @@ const costsSlice = createSlice({
   name: "costs",
   initialState: {
     costs: getCostsFromLocalStorage(),
+    costsSum: +0,
   },
   reducers: {
     addCost: ({ costs }, { payload }) => {
@@ -14,14 +15,19 @@ const costsSlice = createSlice({
       const index = costs.findIndex(({ id }) => id === costId);
       costs.splice(index, 1);
     },
+    calculateCostsSum: (state, { payload: costs }) => {
+      state.costsSum = costs.reduce((a, b) => (a = a + b.amount), 0);
+    },
   },
 });
 
-export const { addCost, deleteCost } = costsSlice.actions;
+export const { addCost, deleteCost, calculateCostsSum } = costsSlice.actions;
 
 export default costsSlice.reducer;
 
 export const selectCosts = (state) => state.costs;
+
+export const selectCostsSum = (state) => state.costsSum;
 
 // const selectCostsState = (state) => state.costs;
 

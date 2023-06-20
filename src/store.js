@@ -11,6 +11,7 @@ const store = configureStore({
     incomes: incomesReducer,
     incomesSum: incomesReducer,
     costs: costsReducer,
+    costsSum: costsReducer,
   },
   middleware: [sagaMiddleware],
 });

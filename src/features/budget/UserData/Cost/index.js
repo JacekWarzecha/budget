@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import { addCost, deleteCost } from "../../costsSlice";
-import { selectCosts } from "../../costsSlice";
+import {} from "../../costsSlice";
+import {
+  addCost,
+  deleteCost,
+  selectCosts,
+  selectCostsSum,
+  calculateCostsSum,
+} from "../../costsSlice";
 // import { List } from "./styled";
 import { Form } from "../Form";
 import { Input } from "../Input";
@@ -16,6 +22,7 @@ import { DateAdded } from "../styled/DateAdded";
 export default () => {
   const dispatch = useDispatch();
   const { costs } = useSelector(selectCosts);
+  const { costsSum } = useSelector(selectCostsSum);
 
   const [newCosts, setNewCosts] = useState("");
   const [newCostsContent, setnewCostsContent] = useState("");
@@ -42,20 +49,14 @@ export default () => {
     setnewCostsContent("");
   };
 
-  const [costsSum, setCostsSum] = useState(0);
-
-  const calculateCostsSum = () => costs.reduce((a, b) => (a = a + b.amount), 0);
-
-  // useEffect(() => {
-  //   setCostsSum(calculateCostsSum);
-  // }, [costs]);
+  useEffect(() => {
+    dispatch(calculateCostsSum(costs));
+  }, [dispatch, costs]);
 
   // const calculateResult = (a, b) => {
   //   const result = a - b;
   //   return result;
   // };
-
-  // const sumValues = obj => Object.values(obj).reduce((a, b) => a + b, 0);
 
   return (
     <>
@@ -92,9 +93,9 @@ export default () => {
             </ItemWrapper>
           ))}
         <ItemWrapper>Razem: {costsSum}</ItemWrapper>
-        <p>
+        {/* <p>
           <button onClick={() => calculateCostsSum()}>Koszty łącznie</button>
-        </p>
+        </p> */}
       </RenderList>
       <p>
         {/* Koszty wynoszą :<button>Oblicz bilans</button> */}
