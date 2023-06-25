@@ -13,6 +13,7 @@ export const Header = () => {
       <DataBox>
         <ItemBox>Przychody: {incomesSum}</ItemBox>
         <ItemBox>Koszty: {costsSum}</ItemBox>
+        <ItemBox>Bilans:</ItemBox>
       </DataBox>
     </Wrapper>
   );

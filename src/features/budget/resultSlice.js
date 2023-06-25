@@ -25,4 +25,6 @@ export const { calculateResult } = resultSlice.actions;
 
 export default resultSlice.reducer;
 
-export const selectResult = (state) => state.result;
+export const selectResult = (state) => selectResult(state).result;
+
+export const selectResultState = (state) => state.result;

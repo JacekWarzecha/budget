@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mobileMax } from "../../../../../theme";
 
 export const Button = styled.button`
   max-height: 40px;
@@ -7,6 +8,10 @@ export const Button = styled.button`
 
   &&:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: ${mobileMax}) {
+    align-self: flex-end;
   }
 `;
 

@@ -6,4 +6,5 @@ export const RenderList = styled.div`
   padding: 15px;
   text-align: center;
   background: #232423;
+  border-radius: 4px;
 `;
