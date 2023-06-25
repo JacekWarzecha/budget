@@ -1,7 +1,7 @@
 import Section from "../../../common/Section";
 import { Income } from "./Income";
 import Cost from "./Cost";
-import Result from "./Result";
+import { Result } from "./Result";
 
 export default () => {
   return (

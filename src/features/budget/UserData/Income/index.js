@@ -8,11 +8,11 @@ import {
   selectIncomes,
   selectIncomesSum,
 } from "../../incomesSlice";
-import { Form } from "../Form";
-import { Input } from "../Input";
-import { Button, ButtonDelete } from "../Button";
-import { RenderList } from "../RenderList";
-import { ItemWrapper } from "../ItemWrapper";
+import { Form } from "../common styled/Form";
+import { Input } from "../common styled/Input";
+import { Button, ButtonDelete } from "../common styled/Button";
+import { RenderList } from "../common styled/RenderList";
+import { ItemWrapper } from "../common styled/ItemWrapper";
 import { Content } from "../styled/Content";
 import { Amount } from "../styled/Amount";
 import { fetchExampleIncomes } from "../../incomesSlice";
@@ -75,9 +75,9 @@ export const Income = () => {
         />
         <Button>Dodaj przychód</Button>
       </Form>
-      <Button onClick={() => dispatch(fetchExampleIncomes())}>
+      {/* <Button onClick={() => dispatch(fetchExampleIncomes())}>
         pobierz pd income
-      </Button>
+      </Button> */}
       <RenderList>
         Przychód
         {incomes?.map((income) => (
