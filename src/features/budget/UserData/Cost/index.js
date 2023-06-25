@@ -6,7 +6,7 @@ import {
   addCost,
   deleteCost,
   selectCosts,
-  selectCostsSum,
+  selectCostsSumState,
   calculateCostsSum,
 } from "../../costsSlice";
 // import { List } from "./styled";
@@ -23,7 +23,7 @@ import { Diagram } from "./styled";
 export default () => {
   const dispatch = useDispatch();
   const { costs } = useSelector(selectCosts);
-  const { costsSum } = useSelector(selectCostsSum);
+  const { costsSum } = useSelector(selectCostsSumState);
 
   const [newCosts, setNewCosts] = useState("");
   const [newCostsContent, setnewCostsContent] = useState("");
@@ -89,7 +89,7 @@ export default () => {
               <Amount>{cost.amount}</Amount>
               <DateAdded>{cost.date}</DateAdded>
               <ButtonDelete onClick={() => dispatch(deleteCost(cost.id))}>
-                Usuń
+                🗑️
               </ButtonDelete>
             </ItemWrapper>
           ))}

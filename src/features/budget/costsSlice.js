@@ -27,7 +27,9 @@ export default costsSlice.reducer;
 
 export const selectCosts = (state) => state.costs;
 
-export const selectCostsSum = (state) => state.costsSum;
+export const selectCostsSum = (state) => selectCostsSumState(state).costsSum;
+
+export const selectCostsSumState = (state) => state.costsSum;
 
 // const selectCostsState = (state) => state.costs;
 

@@ -6,7 +6,7 @@ import {
   deleteIncome,
   calculateIncomesSum,
   selectIncomes,
-  selectIncomesSum,
+  selectIncomesSumState,
 } from "../../incomesSlice";
 import { Form } from "../common styled/Form";
 import { Input } from "../common styled/Input";
@@ -21,7 +21,7 @@ import { DateAdded } from "../styled/DateAdded";
 export const Income = () => {
   const dispatch = useDispatch();
   const { incomes } = useSelector(selectIncomes);
-  const { incomesSum } = useSelector(selectIncomesSum);
+  const { incomesSum } = useSelector(selectIncomesSumState);
 
   const [newIncomeContent, setNewIncomeContent] = useState("");
   const [newIncome, setNewIncome] = useState("");
@@ -86,7 +86,7 @@ export const Income = () => {
             <Amount>{income.amount}</Amount>
             {income.date && <DateAdded>{income.date}</DateAdded>}
             <ButtonDelete onClick={() => dispatch(deleteIncome(income.id))}>
-              Usuń
+              🗑️
             </ButtonDelete>
           </ItemWrapper>
         ))}

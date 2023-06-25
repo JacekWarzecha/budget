@@ -45,7 +45,10 @@ export default incomesSlice.reducer;
 
 export const selectIncomes = (state) => state.incomes;
 
-export const selectIncomesSum = (state) => state.incomesSum;
+export const selectIncomesSum = (state) =>
+  selectIncomesSumState(state).incomesSum;
+
+export const selectIncomesSumState = (state) => state.incomesSum;
 
 // const selectIncomesState = (state) => state.incomes;
 

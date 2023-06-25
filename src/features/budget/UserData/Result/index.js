@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux";
-import { selectIncomesSum } from "../../incomesSlice";
-import { selectCostsSum } from "../../costsSlice";
+import { selectIncomesSumState } from "../../incomesSlice";
+import { selectCostsSumState } from "../../costsSlice";
 import { calculateResult, selectResult } from "../../resultSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Button } from "../common styled/Button";
 
 export const Result = () => {
-  const { incomesSum } = useSelector(selectIncomesSum);
-  const { costsSum } = useSelector(selectCostsSum);
+  const { incomesSum } = useSelector(selectIncomesSumState);
+  const { costsSum } = useSelector(selectCostsSumState);
   const { result } = useSelector(selectResult);
   const dispatch = useDispatch();
 
