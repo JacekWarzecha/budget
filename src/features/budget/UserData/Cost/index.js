@@ -14,11 +14,12 @@ import { Form } from "../common styled/Form";
 import { Input } from "../common styled/Input";
 import { Button, ButtonDelete } from "../common styled/Button";
 import { RenderList } from "../common styled/RenderList";
-import { ItemWrapper } from "../common styled/ItemWrapper";
-import { Content } from "../styled/Content";
-import { Amount } from "../styled/Amount";
-import { DateAdded } from "../styled/DateAdded";
+import { ItemEnd, ItemWrapper } from "../common styled/ItemWrapper";
+import { Content } from "../common styled/Content";
+import { Amount } from "../common styled/Amount";
+import { DateAdded } from "../common styled/DateAdded";
 import { Diagram } from "./styled";
+import { Title } from "../common styled/Title";
 
 export default () => {
   const dispatch = useDispatch();
@@ -81,7 +82,7 @@ export default () => {
         <Button>Dodaj koszt</Button>
       </Form>
       <RenderList>
-        Koszt
+        <Title>Koszt</Title>
         {costs &&
           costs.map((cost) => (
             <ItemWrapper key={cost.id}>
@@ -93,7 +94,7 @@ export default () => {
               </ButtonDelete>
             </ItemWrapper>
           ))}
-        <ItemWrapper>Razem: {costsSum}</ItemWrapper>
+        <ItemEnd>Razem: {costsSum}</ItemEnd>
         {/* <p>
           <button onClick={() => calculateCostsSum()}>Koszty łącznie</button>
         </p> */}

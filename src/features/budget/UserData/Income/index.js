@@ -12,11 +12,12 @@ import { Form } from "../common styled/Form";
 import { Input } from "../common styled/Input";
 import { Button, ButtonDelete } from "../common styled/Button";
 import { RenderList } from "../common styled/RenderList";
-import { ItemWrapper } from "../common styled/ItemWrapper";
-import { Content } from "../styled/Content";
-import { Amount } from "../styled/Amount";
+import { ItemEnd, ItemWrapper } from "../common styled/ItemWrapper";
+import { Content } from "../common styled/Content";
+import { Amount } from "../common styled/Amount";
 import { fetchExampleIncomes } from "../../incomesSlice";
-import { DateAdded } from "../styled/DateAdded";
+import { DateAdded } from "../common styled/DateAdded";
+import { Title } from "../common styled/Title";
 
 export const Income = () => {
   const dispatch = useDispatch();
@@ -79,7 +80,7 @@ export const Income = () => {
         pobierz pd income
       </Button> */}
       <RenderList>
-        Przychód
+        <Title>Przychód</Title>
         {incomes?.map((income) => (
           <ItemWrapper key={income.id}>
             <Content>{income.content}</Content>
@@ -90,10 +91,10 @@ export const Income = () => {
             </ButtonDelete>
           </ItemWrapper>
         ))}
-        <ItemWrapper>
+        <ItemEnd>
           Razem: {incomesSum}
           {/* {incomesSum !== undefined && <span>Razem: {incomesSum}</span>} */}
-        </ItemWrapper>
+        </ItemEnd>
       </RenderList>
       {/* <p>
         <button onClick={() => dispatch(calculateIncomesSum(incomes))}>
