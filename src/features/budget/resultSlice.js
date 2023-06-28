@@ -6,7 +6,8 @@ const resultSlice = createSlice({
     result: +0,
   },
   reducers: {
-    calculateResult: (state, { payload: incomesSum, costsSum }) => {
+    calculateResult: (state, { payload }) => {
+      const { incomesSum, costsSum } = payload;
       state.result = incomesSum - costsSum;
     },
   },
@@ -25,6 +26,6 @@ export const { calculateResult } = resultSlice.actions;
 
 export default resultSlice.reducer;
 
-export const selectResult = (state) => selectResult(state).result;
-
 export const selectResultState = (state) => state.result;
+
+export const selectResult = (state) => selectResult(state).result;
