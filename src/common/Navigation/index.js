@@ -19,8 +19,8 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  padding: 20px;
-  margin: 10px 0;
+  padding: 16px;
+  margin: 4px 0;
 
   @media (max-width: ${smallMobileMax}px) {
     padding: 14px;
@@ -32,7 +32,7 @@ export const StyledNavlink = styled(NavLink)`
   text-decoration: none;
   color: #cbaf44;
   background: rgb(51, 68, 51);
-  padding: 12px;
+  padding: 8px 60px;
   border-radius: 4px;
 
   &.active {
