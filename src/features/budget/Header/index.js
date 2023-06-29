@@ -1,22 +1,30 @@
 import { HeaderPage, Wrapper, DataBox, ItemBox, Value } from "./styled";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectIncomesSum, selectIncomes } from "../incomesSlice";
 import { selectCostsSum } from "../costsSlice";
 import { selectResultState } from "../resultSlice";
 import { Button } from "../UserData/common styled/Button";
+import { addDataBase, selectDataBase } from "../dataBaseSlice";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const Header = () => {
   const incomesSum = useSelector(selectIncomesSum);
   const { incomes } = useSelector(selectIncomes);
   const costsSum = useSelector(selectCostsSum);
   const { result } = useSelector(selectResultState);
+  const dispatch = useDispatch();
+  const dataBase = useSelector(selectDataBase);
   console.log();
 
   return (
     <Wrapper>
       <HeaderPage>Poznaj swój budżet</HeaderPage>
       <DataBox>
-        <ItemBox date>{incomes[0].date.slice(3)}</ItemBox>
+        {incomes.length >= 1 ? (
+          <ItemBox date>{incomes[0].date.slice(3)}</ItemBox>
+        ) : (
+          ""
+        )}
         <ItemBox>
           Przychody: <Value>{incomesSum}</Value>
         </ItemBox>
@@ -27,9 +35,35 @@ export const Header = () => {
           Bilans: <Value>{result}</Value>
         </ItemBox>
         <ItemBox>
-          <Button title="Na koniec miesiąca dodaj bilans do tablicy">➕</Button>
+          <Button
+            onClick={() =>
+              dispatch(
+                addDataBase({
+                  incomesSum: incomesSum,
+                  costsSum: costsSum,
+                  result: result,
+                  id: nanoid(),
+                })
+              )
+            }
+            title="Na koniec miesiąca dodaj bilans do tablicy"
+          >
+            ➕
+          </Button>
         </ItemBox>
       </DataBox>
+      {/* <div>
+        Tutaj wypisze bilanse:
+        {dataBase.map((data) => (
+          <div key={data.id}>
+            <li>{data.incomesSum}</li>
+            <li>{data.costsSum}</li>
+            <li>{data.result}</li>
+            {incomes[0].date.slice(3)}
+            {console.log(dataBase)}
+          </div>
+        ))}
+      </div> */}
     </Wrapper>
   );
 };
