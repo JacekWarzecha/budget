@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { smallMobileMax } from "../../../theme";
 
 export const Wrapper = styled.div`
@@ -35,16 +35,20 @@ export const ItemBox = styled.p`
   padding: 10px;
   align-items: center;
   display: flex;
-
-  ${({ date }) =>
-    date &&
-    css`
-      font-size: 14px;
-    `}
 `;
 
 export const Value = styled.span`
   font-size: 16px;
   margin-left: 5px;
   color: rgb(203, 175, 68);
+`;
+
+export const Button = styled.button`
+  background: none;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(125%);
+  }
 `;

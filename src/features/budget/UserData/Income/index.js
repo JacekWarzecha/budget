@@ -61,14 +61,14 @@ export const Income = () => {
         <Input
           value={newIncomeContent}
           onChange={onInputContentChange}
-          placeholder=" Nazwa przychodu"
+          placeholder=" Nazwa przychodu . . ."
           required
         />
         <Input
           type="number"
           value={newIncome}
           onChange={onInputChange}
-          placeholder=" Wysokość przychodu"
+          placeholder=" Wysokość przychodu . . ."
           required
           pattern="[0-9]"
           step="1"

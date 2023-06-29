@@ -1,9 +1,8 @@
-import { HeaderPage, Wrapper, DataBox, ItemBox, Value } from "./styled";
+import { HeaderPage, Wrapper, DataBox, ItemBox, Value, Button } from "./styled";
 import { useSelector, useDispatch } from "react-redux";
 import { selectIncomesSum, selectIncomes } from "../incomesSlice";
 import { selectCostsSum } from "../costsSlice";
 import { selectResultState } from "../resultSlice";
-import { Button } from "../UserData/common styled/Button";
 import { addDataBase } from "../dataBaseSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
@@ -19,7 +18,7 @@ export const Header = () => {
       <HeaderPage>Poznaj swój budżet</HeaderPage>
       <DataBox>
         {incomes.length >= 1 ? (
-          <ItemBox date>{incomes[0].date.slice(3)}</ItemBox>
+          <ItemBox>{incomes[0].date.slice(4)}</ItemBox>
         ) : (
           ""
         )}

@@ -95,21 +95,7 @@ export default () => {
             </ItemWrapper>
           ))}
         <ItemEnd>Razem: {costsSum}</ItemEnd>
-        {/* <p>
-          <button onClick={() => calculateCostsSum()}>Koszty łącznie</button>
-        </p> */}
       </RenderList>
-      <p>
-        {/* Koszty wynoszą :<button>Oblicz bilans</button> */}
-        {/* {Object.values(costs).map((cost) => cost.amount)} */}
-        {/* {Object.values(costs).map((cost) => (
-          <li key={cost.id}>{cost.amount}</li>
-        ))}{" "}
-        -{" "}
-        {Object.values(incomes).map((income) => (
-          <li key={income.id}>{income.amount}</li>
-        ))} */}
-      </p>
     </>
   );
 };
