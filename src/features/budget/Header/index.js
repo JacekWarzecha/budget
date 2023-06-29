@@ -4,7 +4,7 @@ import { selectIncomesSum, selectIncomes } from "../incomesSlice";
 import { selectCostsSum } from "../costsSlice";
 import { selectResultState } from "../resultSlice";
 import { Button } from "../UserData/common styled/Button";
-import { addDataBase, selectDataBase } from "../dataBaseSlice";
+import { addDataBase } from "../dataBaseSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
 export const Header = () => {
@@ -13,8 +13,6 @@ export const Header = () => {
   const costsSum = useSelector(selectCostsSum);
   const { result } = useSelector(selectResultState);
   const dispatch = useDispatch();
-  const dataBase = useSelector(selectDataBase);
-  console.log();
 
   return (
     <Wrapper>
@@ -42,6 +40,7 @@ export const Header = () => {
                   incomesSum: incomesSum,
                   costsSum: costsSum,
                   result: result,
+                  date: incomes[0].date.slice(3),
                   id: nanoid(),
                 })
               )
@@ -52,18 +51,6 @@ export const Header = () => {
           </Button>
         </ItemBox>
       </DataBox>
-      {/* <div>
-        Tutaj wypisze bilanse:
-        {dataBase.map((data) => (
-          <div key={data.id}>
-            <li>{data.incomesSum}</li>
-            <li>{data.costsSum}</li>
-            <li>{data.result}</li>
-            {incomes[0].date.slice(3)}
-            {console.log(dataBase)}
-          </div>
-        ))}
-      </div> */}
     </Wrapper>
   );
 };

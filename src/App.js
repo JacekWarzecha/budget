@@ -1,6 +1,6 @@
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Navigation, List, ListItem, StyledNavlink } from "./common/Navigation";
-import { DataBase } from "./features/dataBase";
+import DataBase from "./features/dataBase";
 import Budget from "./features/budget/Budget";
 
 export default () => (

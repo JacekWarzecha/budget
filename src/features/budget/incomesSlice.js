@@ -50,6 +50,6 @@ export const selectIncomesSum = (state) =>
 
 export const selectIncomesSumState = (state) => state.incomesSum;
 
-// const selectIncomesState = (state) => state.incomes;
+export const selectIncomesState = (state) => state.incomes;
 
 // export const selectIncomes = (state) => selectIncomesState(state).incomes;

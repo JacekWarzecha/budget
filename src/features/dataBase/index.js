@@ -1,3 +1,11 @@
-export const DataBase = () => {
-  <div>Hello everyone :)</div>;
-};
+import { Array } from "./Array";
+
+function DataBase() {
+  return (
+    <div>
+      <Array />
+    </div>
+  );
+}
+
+export default DataBase;
