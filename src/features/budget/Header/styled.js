@@ -9,7 +9,8 @@ export const Wrapper = styled.div`
 export const HeaderPage = styled.header`
   display: flex;
   justify-content: center;
-  padding: 15px;
+  padding: 30px 0 40px;
+  font-size: 34px;
 `;
 
 export const DataBox = styled.div`
@@ -45,5 +46,5 @@ export const ItemBox = styled.p`
 export const Value = styled.span`
   font-size: 16px;
   margin-left: 5px;
-  color: gold;
+  color: rgb(203, 175, 68);
 `;
