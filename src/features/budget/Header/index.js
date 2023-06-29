@@ -17,11 +17,11 @@ export const Header = () => {
     <Wrapper>
       <HeaderPage>Poznaj swój budżet</HeaderPage>
       <DataBox>
-        {incomes.length >= 1 ? (
+        {/* {incomes.length >= 1 ? (
           <ItemBox>{incomes[0].date.slice(4)}</ItemBox>
         ) : (
           ""
-        )}
+        )} */}
         <ItemBox>
           Przychody: <Value>{incomesSum}</Value>
         </ItemBox>
