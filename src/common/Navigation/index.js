@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { smallMobileMax } from "../../theme";
 
 export const Navigation = styled.nav``;
 
@@ -11,11 +12,20 @@ export const List = styled.ul`
   background: rgb(35, 36, 35);
   margin: 0;
   font-size: 18px;
+
+  @media (max-width: ${smallMobileMax}px) {
+    font-size: 14px;
+  }
 `;
 
 export const ListItem = styled.li`
   padding: 20px;
   margin: 10px 0;
+
+  @media (max-width: ${smallMobileMax}px) {
+    padding: 14px;
+    margin: 2px 0;
+  }
 `;
 
 export const StyledNavlink = styled(NavLink)`
@@ -31,5 +41,9 @@ export const StyledNavlink = styled(NavLink)`
 
   &.hover {
     cursor: pointer;
+  }
+
+  @media (max-width: ${smallMobileMax}px) {
+    padding: 5px 10px;
   }
 `;

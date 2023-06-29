@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { mobileMax } from "../../../../../theme";
+import { smallMobileMax } from "../../../../../theme";
 
 export const Input = styled.input`
-  max-width: 100%;
+  width: 100%;
   max-height: 40px;
   font-size: 16px;
   padding: 6px;
@@ -26,6 +27,10 @@ export const Input = styled.input`
   }
 
   @media (max-width: ${mobileMax}px) {
-    width: 75%;
+  }
+
+  @media (max-width: ${smallMobileMax}px) {
+    font-size: 12px;
+    padding: 4px;
   }
 `;

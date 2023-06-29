@@ -44,7 +44,10 @@ export const Income = () => {
         amount: +newIncome,
         content: newIncomeContent,
         id: nanoid(),
-        date: new Date().toLocaleDateString(),
+        date: new Date().toLocaleDateString(undefined, {
+          month: "numeric",
+          year: "numeric",
+        }),
       })
     );
     setNewIncomeContent("");

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobileMax } from "../../../../../theme";
+import { smallMobileMax } from "../../../../../theme";
 
 export const Form = styled.form`
   margin: 20px;
@@ -11,8 +12,14 @@ export const Form = styled.form`
   border-radius: 4px;
 
   @media (max-width: ${mobileMax}px) {
+  }
+
+  @media (max-width: ${smallMobileMax}px) {
+    margin: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    padding: 10px;
   }
 `;

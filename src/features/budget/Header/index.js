@@ -12,24 +12,21 @@ export const Header = () => {
   const costsSum = useSelector(selectCostsSum);
   const { result } = useSelector(selectResultState);
   const dispatch = useDispatch();
+  console.log(incomes);
 
   return (
     <Wrapper>
       <HeaderPage>Poznaj swój budżet</HeaderPage>
       <DataBox>
-        {/* {incomes.length >= 1 ? (
-          <ItemBox>{incomes[0].date.slice(4)}</ItemBox>
-        ) : (
-          ""
-        )} */}
+        {incomes.length >= 1 ? <ItemBox>{incomes[0].date}</ItemBox> : ""}
         <ItemBox>
-          Przychody: <Value>{incomesSum}</Value>
+          Przychody:&nbsp;<Value>{incomesSum}</Value>
         </ItemBox>
         <ItemBox>
-          Koszty: <Value>{costsSum}</Value>
+          Koszty:&nbsp;<Value>{costsSum}</Value>
         </ItemBox>
         <ItemBox>
-          Bilans: <Value>{result}</Value>
+          Bilans:&nbsp;<Value>{result}</Value>
         </ItemBox>
         <ItemBox>
           <Button
@@ -39,7 +36,7 @@ export const Header = () => {
                   incomesSum: incomesSum,
                   costsSum: costsSum,
                   result: result,
-                  date: incomes[0].date.slice(3),
+                  date: incomes[0].date,
                   id: nanoid(),
                 })
               )

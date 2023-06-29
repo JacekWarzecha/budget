@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { mobileMax } from "../../../../../theme";
+import { smallMobileMax } from "../../../../../theme";
 
 export const Button = styled.button`
   max-height: 40px;
-  max-width: 100%;
+  width: 100%;
   font-size: 16px;
   border-radius: 4px;
   border: none;
@@ -12,7 +13,11 @@ export const Button = styled.button`
   color: white;
 
   @media (max-width: ${mobileMax}px) {
-    width: 75%;
+  }
+
+  @media (max-width: ${smallMobileMax}px) {
+    font-size: 12px;
+    padding: 4px;
   }
 
   &&:hover {
