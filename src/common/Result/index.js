@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { smallMobileMax } from "../../theme";
+import { mobileMax } from "../../theme";
 
 export const DataBox = styled.div`
   background: rgb(35, 36, 35);
@@ -23,6 +24,18 @@ export const DataBox = styled.div`
       border-bottom: 1px solid rgb(51, 68, 51);
       display: grid;
       grid-template-columns: 2fr 3fr 3fr 3fr 2fr;
+
+      @media (max-width: 800px) {
+        flex-wrap: wrap;
+        display: flex;
+        padding: 8px;
+      }
+
+      @media (max-width: ${smallMobileMax}px) {
+        flex-wrap: wrap;
+        display: flex;
+        padding: 8px;
+      }
     `}
 `;
 
