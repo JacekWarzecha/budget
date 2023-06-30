@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import {} from "../../costsSlice";
+import {} from "../../Logic/costs/costsSlice";
 import {
   addCost,
   deleteCost,
   selectCosts,
   selectCostsSumState,
   calculateCostsSum,
-} from "../../costsSlice";
+} from "../../Logic/costs/costsSlice";
 // import { List } from "./styled";
 import { Form } from "../common styled/Form";
 import { Input } from "../common styled/Input";

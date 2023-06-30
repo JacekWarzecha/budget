@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getDataBaseFromLocalStorage } from "./dataBaseLocalStorage";
 
 const dataBaseSlice = createSlice({
   name: "dataBase",
   initialState: {
-    dataBase: [],
+    dataBase: getDataBaseFromLocalStorage(),
   },
   reducers: {
     addDataBase: ({ dataBase }, { payload: data }) => {

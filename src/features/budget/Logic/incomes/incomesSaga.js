@@ -8,7 +8,7 @@ import {
 } from "redux-saga/effects";
 import { selectIncomes } from "./incomesSlice";
 import { saveIncomesInLocalStorage } from "./incomesLocalStorage";
-import { getExampleIncomes } from "./UserData/getExampleIncomes";
+import { getExampleIncomes } from "../../UserData/getExampleIncomes";
 import {
   fetchExampleIncomes,
   fetchExampleIncomesSuccess,

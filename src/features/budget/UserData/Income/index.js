@@ -7,7 +7,7 @@ import {
   calculateIncomesSum,
   selectIncomes,
   selectIncomesSumState,
-} from "../../incomesSlice";
+} from "../../Logic/incomes/incomesSlice";
 import { Form } from "../common styled/Form";
 import { Input } from "../common styled/Input";
 import { Button, ButtonDelete } from "../common styled/Button";
@@ -15,7 +15,7 @@ import { RenderList } from "../common styled/RenderList";
 import { ItemEnd, ItemWrapper } from "../common styled/ItemWrapper";
 import { Content } from "../common styled/Content";
 import { Amount } from "../common styled/Amount";
-import { fetchExampleIncomes } from "../../incomesSlice";
+import { fetchExampleIncomes } from "../../Logic/incomes/incomesSlice";
 import { DateAdded } from "../common styled/DateAdded";
 import { Title } from "../common styled/Title";
 

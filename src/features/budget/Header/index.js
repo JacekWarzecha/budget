@@ -1,9 +1,9 @@
 import { HeaderPage, Wrapper, DataBox, ItemBox, Value, Button } from "./styled";
 import { useSelector, useDispatch } from "react-redux";
-import { selectIncomesSum, selectIncomes } from "../incomesSlice";
-import { selectCostsSum } from "../costsSlice";
-import { selectResultState } from "../resultSlice";
-import { addDataBase } from "../dataBaseSlice";
+import { selectIncomesSum, selectIncomes } from "../Logic/incomes/incomesSlice";
+import { selectCostsSum } from "../Logic/costs/costsSlice";
+import { selectResultState } from "../Logic/resultSlice";
+import { addDataBase } from "../Logic/dataBase/dataBaseSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
 export const Header = () => {
@@ -12,7 +12,6 @@ export const Header = () => {
   const costsSum = useSelector(selectCostsSum);
   const { result } = useSelector(selectResultState);
   const dispatch = useDispatch();
-  console.log(incomes);
 
   return (
     <Wrapper>
@@ -36,7 +35,7 @@ export const Header = () => {
                   incomesSum: incomesSum,
                   costsSum: costsSum,
                   result: result,
-                  date: incomes[0].date,
+                  date: incomes.length >= 1 ? incomes[0].date : "wpisz miesiąc",
                   id: nanoid(),
                 })
               )

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectDataBase } from "../../budget/dataBaseSlice";
+import { selectDataBase } from "../../budget/Logic/dataBase/dataBaseSlice";
 
 export const Array = () => {
   const dataBase = useSelector(selectDataBase);

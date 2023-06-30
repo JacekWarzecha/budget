@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { selectIncomesSumState } from "../../incomesSlice";
-import { selectCostsSumState } from "../../costsSlice";
-import { calculateResult, selectResultState } from "../../resultSlice";
+import { selectIncomesSumState } from "../../Logic/incomes/incomesSlice";
+import { selectCostsSumState } from "../../Logic/costs/costsSlice";
+import { calculateResult, selectResultState } from "../../Logic/resultSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
