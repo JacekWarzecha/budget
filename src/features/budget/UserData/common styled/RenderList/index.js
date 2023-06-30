@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { smallMobileMax } from "../../../../../theme";
 
 export const RenderList = styled.div`
   display: grid;
@@ -7,4 +8,8 @@ export const RenderList = styled.div`
   text-align: center;
   background: #232423;
   border-radius: 4px;
+
+  @media (max-width: ${smallMobileMax}px) {
+    padding: 10px;
+  }
 `;

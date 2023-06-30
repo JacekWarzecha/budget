@@ -20,6 +20,7 @@ import { Amount } from "../common styled/Amount";
 import { DateAdded } from "../common styled/DateAdded";
 import { Diagram } from "./styled";
 import { Title } from "../common styled/Title";
+import { Sum } from "../common styled/Sum";
 
 export default () => {
   const dispatch = useDispatch();
@@ -94,7 +95,9 @@ export default () => {
               </ButtonDelete>
             </ItemWrapper>
           ))}
-        <ItemEnd>Razem: {costsSum}</ItemEnd>
+        <ItemEnd>
+          Razem:&nbsp;<Sum>{costsSum}</Sum>
+        </ItemEnd>
       </RenderList>
     </>
   );

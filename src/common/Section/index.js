@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobileMax } from "../../theme";
+import { smallMobileMax } from "../../theme";
 
 export default styled.section`
   display: grid;
@@ -10,5 +11,9 @@ export default styled.section`
 
   @media (max-width: ${mobileMax}px) {
     margin: 0;
+  }
+
+  @media (max-width: ${smallMobileMax}px) {
+    grid-gap: 5px;
   }
 `;

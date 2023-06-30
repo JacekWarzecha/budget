@@ -53,6 +53,10 @@ export const Value = styled.span`
   margin-left: 5px;
   color: rgb(203, 175, 68);
 
+  &:hover {
+    filter: brightness(145%);
+  }
+
   @media (max-width: ${smallMobileMax}px) {
     margin-left: 0;
     font-size: 14px;

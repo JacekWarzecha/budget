@@ -18,6 +18,7 @@ import { Amount } from "../common styled/Amount";
 import { fetchExampleIncomes } from "../../Logic/incomes/incomesSlice";
 import { DateAdded } from "../common styled/DateAdded";
 import { Title } from "../common styled/Title";
+import { Sum } from "../common styled/Sum";
 
 export const Income = () => {
   const dispatch = useDispatch();
@@ -64,14 +65,14 @@ export const Income = () => {
         <Input
           value={newIncomeContent}
           onChange={onInputContentChange}
-          placeholder=" Nazwa przychodu . . ."
+          placeholder=" Nazwa przychodu"
           required
         />
         <Input
           type="number"
           value={newIncome}
           onChange={onInputChange}
-          placeholder=" Wysokość przychodu . . ."
+          placeholder=" Wysokość przychodu"
           required
           pattern="[0-9]"
           step="1"
@@ -95,7 +96,7 @@ export const Income = () => {
           </ItemWrapper>
         ))}
         <ItemEnd>
-          Razem: {incomesSum}
+          Razem:&nbsp;<Sum>{incomesSum}</Sum>
           {/* {incomesSum !== undefined && <span>Razem: {incomesSum}</span>} */}
         </ItemEnd>
       </RenderList>
