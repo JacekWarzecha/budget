@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { smallMobileMax } from "../../../../../theme";
+import { smallMobileMax } from "../../../theme";
 
-export const Amount = styled.p`
+export const Content = styled.p`
   margin: 0;
 
   @media (max-width: ${smallMobileMax}px) {

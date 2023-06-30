@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { smallMobileMax } from "../../../../../theme";
+import { smallMobileMax } from "../../../theme";
 
 export const RenderList = styled.div`
   display: grid;

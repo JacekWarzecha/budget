@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { mobileMax } from "../../../../../theme";
-import { smallMobileMax } from "../../../../../theme";
+import { mobileMax } from "../../../theme";
+import { smallMobileMax } from "../../../theme";
 
 export const Button = styled.button`
   max-height: 40px;

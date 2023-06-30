@@ -9,16 +9,16 @@ import {
   selectIncomesSumState,
 } from "../../Logic/incomes/incomesSlice";
 import { Form } from "../common styled/Form";
-import { Input } from "../common styled/Input";
-import { Button, ButtonDelete } from "../common styled/Button";
-import { RenderList } from "../common styled/RenderList";
-import { ItemEnd, ItemWrapper } from "../common styled/ItemWrapper";
-import { Content } from "../common styled/Content";
-import { Amount } from "../common styled/Amount";
+import { Input } from "../../../../common/render/Input";
+import { Button, ButtonDelete } from "../../../../common/render/Button";
+import { RenderList } from "../../../../common/render/RenderList";
+import { ItemEnd, ItemWrapper } from "../../../../common/render/ItemWrapper";
+import { Content } from "../../../../common/render/Content";
+import { Amount } from "../../../../common/render/Amount";
 import { fetchExampleIncomes } from "../../Logic/incomes/incomesSlice";
-import { DateAdded } from "../common styled/DateAdded";
-import { Title } from "../common styled/Title";
-import { Sum } from "../common styled/Sum";
+import { DateAdded } from "../../../../common/render/DateAdded";
+import { Title } from "../../../../common/render/Title";
+import { Sum } from "../../../../common/render/Sum";
 
 export const Income = () => {
   const dispatch = useDispatch();
