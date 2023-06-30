@@ -1,4 +1,5 @@
-import { HeaderPage, Wrapper, DataBox, ItemBox, Value, Button } from "./styled";
+import { HeaderPage, Wrapper } from "./styled";
+import { DataBox, ItemBox, Value, Button } from "../../../common/Result";
 import { useSelector, useDispatch } from "react-redux";
 import { selectIncomesSum, selectIncomes } from "../Logic/incomes/incomesSlice";
 import { selectCostsSum } from "../Logic/costs/costsSlice";

@@ -8,7 +8,7 @@ import {
   selectIncomes,
   selectIncomesSumState,
 } from "../../Logic/incomes/incomesSlice";
-import { Form } from "../common styled/Form";
+import { Form } from "../../../../common/render/Form";
 import { Input } from "../../../../common/render/Input";
 import { Button, ButtonDelete } from "../../../../common/render/Button";
 import { RenderList } from "../../../../common/render/RenderList";

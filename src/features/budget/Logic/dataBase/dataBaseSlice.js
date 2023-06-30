@@ -10,6 +10,10 @@ const dataBaseSlice = createSlice({
     addDataBase: ({ dataBase }, { payload: data }) => {
       dataBase.push(data);
     },
+    deleteDataBase: ({ dataBase }, { payload: dataBaseId }) => {
+      const index = dataBase.findIndex(({ id }) => id === dataBaseId);
+      dataBase.splice(index, 1);
+    },
   },
 });
 
@@ -26,7 +30,7 @@ const dataBaseSlice = createSlice({
 //   );
 // },
 
-export const { addDataBase } = dataBaseSlice.actions;
+export const { addDataBase, deleteDataBase } = dataBaseSlice.actions;
 
 export default dataBaseSlice.reducer;
 
