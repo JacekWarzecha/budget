@@ -2,7 +2,7 @@ import { HeaderPage, Wrapper } from "./styled";
 import { DataBox, ItemBox, Value, Button } from "../../../common/Result";
 import { useSelector, useDispatch } from "react-redux";
 import { selectIncomesSum, selectIncomes } from "../Logic/incomes/incomesSlice";
-import { selectCostsSum } from "../Logic/costs/costsSlice";
+import { selectCostsSum, selectCosts } from "../Logic/costs/costsSlice";
 import { selectResultState } from "../Logic/resultSlice";
 import { addDataBase } from "../Logic/dataBase/dataBaseSlice";
 import { nanoid } from "@reduxjs/toolkit";
@@ -12,6 +12,7 @@ export const Header = () => {
   const { incomes } = useSelector(selectIncomes);
   const costsSum = useSelector(selectCostsSum);
   const { result } = useSelector(selectResultState);
+  const { costs } = useSelector(selectCosts);
   const dispatch = useDispatch();
 
   return (
@@ -33,7 +34,8 @@ export const Header = () => {
             onClick={() =>
               dispatch(
                 addDataBase({
-                  ...incomes,
+                  incomesDataBase: [...incomes],
+                  costsDataBase: { ...costs },
                   incomesSum: incomesSum,
                   costsSum: costsSum,
                   result: result,

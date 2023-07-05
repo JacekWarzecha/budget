@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import {
-  selectDataBase,
+  selectDataBaseState,
   deleteDataBase,
 } from "../../budget/Logic/dataBase/dataBaseSlice";
 import { DataBox, ItemBox, Value, Button } from "../../../common/Result";
@@ -8,12 +8,12 @@ import { Wrapper } from "./styled";
 import { ButtonDelete } from "../../../common/render/Button";
 
 export const Array = () => {
-  const dataBase = useSelector(selectDataBase);
+  const { dataBase } = useSelector(selectDataBaseState);
   const dispatch = useDispatch();
 
   return (
     <Wrapper>
-      {dataBase.map((data) => (
+      {dataBase?.map((data, { costsDataBase, incomesDataBase }) => (
         <DataBox key={data.id} layout>
           <ItemBox>{data.date}</ItemBox>
           <ItemBox>
@@ -25,6 +25,25 @@ export const Array = () => {
           <ItemBox>
             Bilans:&nbsp;<Value>{data.result}</Value>
           </ItemBox>
+          <ItemBox>
+            {incomesDataBase?.map((element) => element.content)}
+          </ItemBox>
+          <ItemBox>
+            {Object.keys(costsDataBase || {}).map((element) => element.content)}
+          </ItemBox>
+          {/* <ItemBox>
+            {Object.keys(dataBase.incomesDataBase || {}).map((element) => (
+              <p>{element.content}</p>
+            ))}
+          </ItemBox> */}
+          {/* <ItemBox>
+            {data.incomesDataBase.map((element) => element.amount)}
+          </ItemBox> */}
+          {/* <ItemBox>
+            {incomesDataBase.map((element) => (
+              <p>{element}</p>
+            ))}
+          </ItemBox> */}
           {/* {dataIncomes.map((element) => (
             <p>{element}</p>
           ))} */}
