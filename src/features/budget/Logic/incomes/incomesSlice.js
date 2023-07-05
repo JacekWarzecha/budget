@@ -16,6 +16,9 @@ const incomesSlice = createSlice({
       const index = incomes.findIndex(({ id }) => id === incomeId);
       incomes.splice(index, 1);
     },
+    deleteIncomesAll: ({ incomes }) => {
+      incomes.splice(0);
+    },
     calculateIncomesSum: (state, { payload: incomes }) => {
       state.incomesSum = incomes.reduce((a, b) => (a = a + b.amount), 0);
     },
@@ -39,6 +42,7 @@ export const {
   fetchExampleIncomes,
   fetchExampleIncomesSuccess,
   fetchExampleIncomesError,
+  deleteIncomesAll,
 } = incomesSlice.actions;
 
 export default incomesSlice.reducer;

@@ -5,6 +5,7 @@ const dataBaseSlice = createSlice({
   name: "dataBase",
   initialState: {
     dataBase: getDataBaseFromLocalStorage(),
+    dataBaseIncomes: [],
   },
   reducers: {
     addDataBase: ({ dataBase }, { payload: data }) => {
@@ -13,6 +14,9 @@ const dataBaseSlice = createSlice({
     deleteDataBase: ({ dataBase }, { payload: dataBaseId }) => {
       const index = dataBase.findIndex(({ id }) => id === dataBaseId);
       dataBase.splice(index, 1);
+    },
+    addDataBaseIncomes: ({ dataBaseIncomes }, { payload: dataIncome }) => {
+      dataBaseIncomes.push(dataIncome);
     },
   },
 });
@@ -30,10 +34,14 @@ const dataBaseSlice = createSlice({
 //   );
 // },
 
-export const { addDataBase, deleteDataBase } = dataBaseSlice.actions;
+export const { addDataBase, deleteDataBase, addDataBaseIncomes } =
+  dataBaseSlice.actions;
 
 export default dataBaseSlice.reducer;
 
 export const selectDataBaseState = (state) => state.dataBase;
-
 export const selectDataBase = (state) => selectDataBaseState(state).dataBase;
+
+export const selectDataBaseIncomesState = (state) => state.dataBaseIncomes;
+export const selectDataBaseIncomes = (state) =>
+  selectDataBaseIncomesState(state).dataBaseIncomes;

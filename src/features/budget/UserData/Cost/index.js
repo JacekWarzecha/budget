@@ -8,6 +8,7 @@ import {
   selectCosts,
   selectCostsSumState,
   calculateCostsSum,
+  deleteCostsAll,
 } from "../../Logic/costs/costsSlice";
 // import { List } from "./styled";
 import { Form } from "../../../../common/render/Form";
@@ -56,11 +57,6 @@ export default () => {
     dispatch(calculateCostsSum(costs));
   }, [dispatch, costs]);
 
-  // const calculateResult = (a, b) => {
-  //   const result = a - b;
-  //   return result;
-  // };
-
   return (
     <>
       <Form onSubmit={onFormSubmit}>
@@ -83,7 +79,12 @@ export default () => {
         <Button>Dodaj koszt</Button>
       </Form>
       <RenderList>
-        <Title>Koszt</Title>
+        <Title>
+          Koszt{" "}
+          <ButtonDelete onClick={() => dispatch(deleteCostsAll())}>
+            ➖
+          </ButtonDelete>
+        </Title>
         {costs &&
           costs.map((cost) => (
             <ItemWrapper key={cost.id}>

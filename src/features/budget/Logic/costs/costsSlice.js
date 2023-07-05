@@ -15,13 +15,17 @@ const costsSlice = createSlice({
       const index = costs.findIndex(({ id }) => id === costId);
       costs.splice(index, 1);
     },
+    deleteCostsAll: ({ costs }) => {
+      costs.splice(0);
+    },
     calculateCostsSum: (state, { payload: costs }) => {
       state.costsSum = costs.reduce((a, b) => (a = a + b.amount), 0);
     },
   },
 });
 
-export const { addCost, deleteCost, calculateCostsSum } = costsSlice.actions;
+export const { addCost, deleteCost, calculateCostsSum, deleteCostsAll } =
+  costsSlice.actions;
 
 export default costsSlice.reducer;
 

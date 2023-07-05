@@ -23,7 +23,7 @@ export const DataBox = styled.div`
       box-shadow: none;
       border-bottom: 1px solid rgb(51, 68, 51);
       display: grid;
-      grid-template-columns: 2fr 3fr 3fr 3fr 2fr;
+      grid-template-columns: 2fr 2fr 3fr 3fr 3fr 2fr;
 
       @media (max-width: 800px) {
         flex-wrap: wrap;

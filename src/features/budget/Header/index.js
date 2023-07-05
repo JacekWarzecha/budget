@@ -33,6 +33,7 @@ export const Header = () => {
             onClick={() =>
               dispatch(
                 addDataBase({
+                  ...incomes,
                   incomesSum: incomesSum,
                   costsSum: costsSum,
                   result: result,
@@ -41,7 +42,7 @@ export const Header = () => {
                 })
               )
             }
-            title="Na koniec miesiąca dodaj bilans do tablicy"
+            title="Dodaj ostateczny bilans miesięczny do tablicy"
           >
             ➕
           </Button>
