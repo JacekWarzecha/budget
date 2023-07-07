@@ -1,3 +1,9 @@
+export const turmeric = () => themeDark.colors.primary;
+
+const colors = {
+  turmeric: "#cbaf44",
+};
+
 const common = {
   breakpoints: {
     smallMobileMax: 600,
@@ -10,6 +16,9 @@ const common = {
 
 export const themeDark = {
   ...common,
+  colors: {
+    primary: colors.turmeric,
+  },
 };
 
 export const mobileMax = ({ theme }) => theme.breakpoints.mobileMax;

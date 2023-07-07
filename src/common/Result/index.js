@@ -4,12 +4,10 @@ import { mobileMax } from "../../theme";
 
 export const DataBox = styled.div`
   background: rgb(35, 36, 35);
-  padding: 8px;
-  -webkit-box-shadow: 3px 3px 17px -6px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 3px 3px 17px -6px rgba(66, 68, 90, 1);
-  box-shadow: 3px 3px 17px -6px rgba(66, 68, 90, 1);
+  padding: 8px 0 20px;
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 
   @media (max-width: ${smallMobileMax}px) {
     flex-wrap: wrap;
@@ -41,7 +39,7 @@ export const DataBox = styled.div`
 
 export const ItemBox = styled.p`
   margin: 0 50px 0 0;
-  font-size: 14px;
+  font-size: 20px;
   padding: 10px;
   align-items: center;
   display: flex;
@@ -54,7 +52,7 @@ export const ItemBox = styled.p`
 `;
 
 export const Value = styled.span`
-  font-size: 16px;
+  font-size: 22px;
   margin-left: 5px;
   color: rgb(203, 175, 68);
 

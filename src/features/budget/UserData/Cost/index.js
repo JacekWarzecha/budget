@@ -22,6 +22,8 @@ import { DateAdded } from "../../../../common/render/DateAdded";
 import { Diagram } from "./styled";
 import { Title } from "../../../../common/render/Title";
 import { Sum } from "../../../../common/render/Sum";
+import { SubTitle } from "../../../../common/render/SubTitle";
+import { InputContainer } from "../../../../common/render/InputContainer";
 
 export default () => {
   const dispatch = useDispatch();
@@ -60,23 +62,26 @@ export default () => {
   return (
     <>
       <Form onSubmit={onFormSubmit}>
-        <Input
-          value={newCostsContent}
-          onChange={costsContentChange}
-          placeholder="Nazwa kosztu"
-          required
-        />
-        <Input
-          type="number"
-          value={newCosts}
-          onChange={costsChange}
-          placeholder="Wysokość kosztu"
-          required
-          pattern="[0-9]"
-          step="1"
-          min="1"
-        />
-        <Button>Dodaj koszt</Button>
+        <SubTitle>Uzupełnij koszty</SubTitle>
+        <InputContainer>
+          <Input
+            value={newCostsContent}
+            onChange={costsContentChange}
+            placeholder="Nazwa kosztu"
+            required
+          />
+          <Input
+            type="number"
+            value={newCosts}
+            onChange={costsChange}
+            placeholder="Wysokość kosztu"
+            required
+            pattern="[0-9]"
+            step="1"
+            min="1"
+          />
+          <Button>Dodaj koszt</Button>
+        </InputContainer>
       </Form>
       <RenderList>
         <Title>

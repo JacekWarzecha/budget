@@ -22,6 +22,9 @@ import { DateAdded } from "../../../../common/render/DateAdded";
 import { Title } from "../../../../common/render/Title";
 import { Sum } from "../../../../common/render/Sum";
 import { ButtonAdd } from "../../../../common/Result";
+import { SubTitle } from "../../../../common/render/SubTitle";
+import { InputContainer } from "../../../../common/render/InputContainer";
+
 export const Income = () => {
   const dispatch = useDispatch();
   const { incomes } = useSelector(selectIncomes);
@@ -64,24 +67,28 @@ export const Income = () => {
   return (
     <>
       <Form onSubmit={onFormSubmit}>
-        <Input
-          value={newIncomeContent}
-          onChange={onInputContentChange}
-          placeholder=" Nazwa przychodu"
-          required
-        />
-        <Input
-          type="number"
-          value={newIncome}
-          onChange={onInputChange}
-          placeholder=" Wysokość przychodu"
-          required
-          pattern="[0-9]"
-          step="1"
-          min="1"
-        />
-        <Button>Dodaj przychód</Button>
+        <SubTitle>Uzupełnij przychód</SubTitle>
+        <InputContainer>
+          <Input
+            value={newIncomeContent}
+            onChange={onInputContentChange}
+            placeholder=" Nazwa przychodu"
+            required
+          />
+          <Input
+            type="number"
+            value={newIncome}
+            onChange={onInputChange}
+            placeholder=" Wysokość przychodu"
+            required
+            pattern="[0-9]"
+            step="1"
+            min="1"
+          />
+          <Button>Dodaj przychód</Button>
+        </InputContainer>
       </Form>
+
       {/* <Button onClick={() => dispatch(fetchExampleIncomes())}>
         pobierz pd income
       </Button> */}

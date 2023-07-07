@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { smallMobileMax } from "../../../theme";
+import { smallMobileMax, turmeric } from "../../../theme";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -9,8 +9,11 @@ export const Wrapper = styled.div`
 export const HeaderPage = styled.header`
   display: flex;
   justify-content: center;
-  padding: 30px 0 40px;
-  font-size: 34px;
+  padding: 30px 0 30px;
+  font-size: 46px;
+  color: ${turmeric};
+  background: rgb(35, 36, 35);
+  /* border-top: 1px solid rgb(141 112 2); */
 
   @media (max-width: ${smallMobileMax}px) {
     font-size: 20px;

@@ -10,6 +10,7 @@ import { ButtonDelete } from "../../../common/render/Button";
 export const Array = () => {
   const { dataBase } = useSelector(selectDataBaseState);
   const dispatch = useDispatch();
+  console.log(dataBase);
 
   return (
     <Wrapper>
@@ -31,6 +32,7 @@ export const Array = () => {
           <ItemBox>
             {Object.keys(costsDataBase || {}).map((element) => element.content)}
           </ItemBox>
+
           {/* <ItemBox>
             {Object.keys(dataBase.incomesDataBase || {}).map((element) => (
               <p>{element.content}</p>

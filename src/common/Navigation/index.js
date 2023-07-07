@@ -12,6 +12,7 @@ export const List = styled.ul`
   background: rgb(35, 36, 35);
   margin: 0;
   font-size: 18px;
+  border-bottom: 1px solid rgb(141 112 2);
 
   @media (max-width: ${smallMobileMax}px) {
     font-size: 14px;
@@ -19,8 +20,8 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  padding: 16px;
-  margin: 4px 0;
+  padding: 20px;
+  margin: 8px 0;
 
   @media (max-width: ${smallMobileMax}px) {
     padding: 14px;

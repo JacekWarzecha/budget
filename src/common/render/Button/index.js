@@ -5,10 +5,10 @@ import { smallMobileMax } from "../../../theme";
 export const Button = styled.button`
   max-height: 40px;
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 4px;
   border: none;
-  padding: 2px;
+  padding: 12px;
   background: rgb(51, 68, 51);
   color: white;
 
