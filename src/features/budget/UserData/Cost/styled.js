@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+export const CostsSum = styled.span``;
+
 export const List = styled.ul`
   /* display: flex;
   margin: 0; */

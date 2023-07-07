@@ -8,7 +8,7 @@ export const RenderList = styled.div`
   text-align: center;
   background: #232423;
   border-radius: 4px;
-  margin: 0 10px;
+  margin: 0 10px 60px;
 
   @media (max-width: ${smallMobileMax}px) {
     padding: 10px;

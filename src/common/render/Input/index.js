@@ -5,8 +5,8 @@ import { smallMobileMax } from "../../../theme";
 export const Input = styled.input`
   width: 100%;
   max-height: 40px;
-  font-size: 18px;
-  padding: 12px;
+  font-size: 22px;
+  padding: 30px;
   border-radius: 4px;
   border: none;
   text-align: center;

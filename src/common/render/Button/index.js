@@ -5,12 +5,15 @@ import { smallMobileMax } from "../../../theme";
 export const Button = styled.button`
   max-height: 40px;
   width: 100%;
-  font-size: 18px;
+  font-size: 22px;
   border-radius: 4px;
   border: none;
-  padding: 12px;
+  padding: 30px;
   background: rgb(51, 68, 51);
   color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 
   @media (max-width: ${mobileMax}px) {
   }

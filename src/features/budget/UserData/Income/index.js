@@ -24,6 +24,7 @@ import { Sum } from "../../../../common/render/Sum";
 import { ButtonAdd } from "../../../../common/Result";
 import { SubTitle } from "../../../../common/render/SubTitle";
 import { InputContainer } from "../../../../common/render/InputContainer";
+import { IncomesSum } from "./styled";
 
 export const Income = () => {
   const dispatch = useDispatch();
@@ -98,6 +99,9 @@ export const Income = () => {
             ➕
           </ButtonAdd> */}
           Przychód
+          <IncomesSum>
+            Razem:&nbsp;<Sum>{incomesSum}</Sum>
+          </IncomesSum>
           <ButtonDelete
             onClick={() => dispatch(deleteIncomesAll())}
             title="Usuń wszystkie bieżące przychody"
@@ -115,9 +119,9 @@ export const Income = () => {
             </ButtonDelete>
           </ItemWrapper>
         ))}
-        <ItemEnd>
+        {/* <ItemEnd>
           Razem:&nbsp;<Sum>{incomesSum}</Sum>
-        </ItemEnd>
+        </ItemEnd> */}
       </RenderList>
     </>
   );

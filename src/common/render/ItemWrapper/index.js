@@ -16,6 +16,10 @@ export const ItemWrapper = styled.div`
     justify-items: center;
     padding: 6px;
   }
+
+  &:hover {
+    color: gold;
+  }
 `;
 
 export const ItemEnd = styled.div`

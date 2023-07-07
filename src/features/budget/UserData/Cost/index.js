@@ -24,6 +24,7 @@ import { Title } from "../../../../common/render/Title";
 import { Sum } from "../../../../common/render/Sum";
 import { SubTitle } from "../../../../common/render/SubTitle";
 import { InputContainer } from "../../../../common/render/InputContainer";
+import { CostsSum } from "./styled";
 
 export default () => {
   const dispatch = useDispatch();
@@ -85,7 +86,10 @@ export default () => {
       </Form>
       <RenderList>
         <Title>
-          Koszt{" "}
+          Koszt
+          <CostsSum>
+            Razem:&nbsp;<Sum>{costsSum}</Sum>
+          </CostsSum>
           <ButtonDelete onClick={() => dispatch(deleteCostsAll())}>
             ➖
           </ButtonDelete>
@@ -101,9 +105,9 @@ export default () => {
               </ButtonDelete>
             </ItemWrapper>
           ))}
-        <ItemEnd>
+        {/* <ItemEnd>
           Razem:&nbsp;<Sum>{costsSum}</Sum>
-        </ItemEnd>
+        </ItemEnd> */}
       </RenderList>
     </>
   );
