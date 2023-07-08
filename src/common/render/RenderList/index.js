@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { smallMobileMax } from "../../../theme";
+import { smallMobileMax, mobileMax } from "../../../theme";
 
 export const RenderList = styled.div`
   display: grid;
@@ -9,6 +9,10 @@ export const RenderList = styled.div`
   background: #232423;
   border-radius: 4px;
   margin: 0 10px 60px;
+
+  @media (max-width: ${mobileMax}px) {
+    margin: 0 10px 15px;
+  }
 
   @media (max-width: ${smallMobileMax}px) {
     padding: 10px;

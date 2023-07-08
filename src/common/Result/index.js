@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
-import { smallMobileMax, tabletMax } from "../../theme";
-import { mobileMax } from "../../theme";
+import { smallMobileMax, mobileMax, tabletMax } from "../../theme";
 
 export const DataBox = styled.div`
   background: rgb(35, 36, 35);
@@ -9,10 +8,11 @@ export const DataBox = styled.div`
   justify-content: center;
   margin-bottom: 20px;
 
-  @media (max-width: ${smallMobileMax}px) {
+  @media (max-width: ${mobileMax}px) {
     flex-wrap: wrap;
     justify-content: center;
-    padding: 5px;
+    padding: 0 0 5px;
+    margin-bottom: 6px;
   }
 
   ${({ layout }) =>

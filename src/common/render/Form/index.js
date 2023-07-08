@@ -17,6 +17,7 @@ export const Form = styled.form`
   }
 
   @media (max-width: ${mobileMax}px) {
+    margin: 30px 10px 10px;
   }
 
   @media (max-width: ${smallMobileMax}px) {

@@ -12,6 +12,7 @@ export default styled.section`
   }
 
   @media (max-width: ${mobileMax}px) {
+    font-size: 18px;
     margin: 0;
   }
 
