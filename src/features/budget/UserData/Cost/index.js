@@ -49,7 +49,7 @@ export default () => {
         amount: +newCosts,
         content: newCostsContent,
         id: nanoid(),
-        date: new Date().toLocaleDateString(),
+        date: new Date(),
       })
     );
     setNewCosts("");
@@ -99,7 +99,7 @@ export default () => {
             <ItemWrapper key={cost.id}>
               <Content>{cost.content}</Content>
               <Amount>{cost.amount}</Amount>
-              <DateAdded>{cost.date}</DateAdded>
+              <DateAdded>{new Date(cost.date).toLocaleDateString()}</DateAdded>
               <ButtonDelete onClick={() => dispatch(deleteCost(cost.id))}>
                 🗑️
               </ButtonDelete>

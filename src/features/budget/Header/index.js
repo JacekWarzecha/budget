@@ -19,7 +19,16 @@ export const Header = () => {
     <Wrapper>
       <HeaderPage>Poznaj swój budżet</HeaderPage>
       <DataBox>
-        {incomes.length >= 1 ? <ItemBox>{incomes[0].date}</ItemBox> : ""}
+        {incomes.length >= 1 ? (
+          <ItemBox>
+            {new Date(incomes[0].date).toLocaleDateString(undefined, {
+              month: "numeric",
+              year: "numeric",
+            })}
+          </ItemBox>
+        ) : (
+          ""
+        )}
         <ItemBox>
           Przychody:&nbsp;<Value>{incomesSum}</Value>
         </ItemBox>

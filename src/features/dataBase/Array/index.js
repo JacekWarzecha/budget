@@ -16,7 +16,12 @@ export const Array = () => {
     <Wrapper>
       {dataBase?.map((data, { costsDataBase, incomesDataBase }) => (
         <DataBox key={data.id} layout>
-          <ItemBox>{data.date}</ItemBox>
+          <ItemBox>
+            {new Date(data.date).toLocaleDateString(undefined, {
+              month: "long",
+              year: "numeric",
+            })}
+          </ItemBox>
           <ItemBox>
             Przychody:&nbsp;<Value>{data.incomesSum}</Value>
           </ItemBox>

@@ -51,10 +51,7 @@ export const Income = () => {
         amount: +newIncome,
         content: newIncomeContent,
         id: nanoid(),
-        date: new Date().toLocaleDateString(undefined, {
-          month: "numeric",
-          year: "numeric",
-        }),
+        date: new Date(),
       })
     );
     setNewIncomeContent("");
@@ -109,11 +106,16 @@ export const Income = () => {
             ➖
           </ButtonDelete>
         </Title>
+        {console.log(incomes)}
         {incomes?.map((income) => (
           <ItemWrapper key={income.id}>
             <Content>{income.content}</Content>
             <Amount>{income.amount}</Amount>
-            {income.date && <DateAdded>{income.date}</DateAdded>}
+            {income.date && (
+              <DateAdded>
+                {new Date(income.date).toLocaleDateString()}
+              </DateAdded>
+            )}
             <ButtonDelete onClick={() => dispatch(deleteIncome(income.id))}>
               🗑️
             </ButtonDelete>
