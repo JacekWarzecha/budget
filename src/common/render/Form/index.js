@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { smallMobileMax } from "../../../theme";
-import { mobileMax } from "../../../theme";
+import { smallMobileMax, mobileMax, tabletMax } from "../../../theme";
 
 export const Form = styled.form`
   margin: 30px 10px;
@@ -12,6 +11,10 @@ export const Form = styled.form`
   -webkit-box-shadow: -3px 5px 56px -22px rgba(61, 72, 61, 1);
   -moz-box-shadow: -3px 5px 56px -22px rgba(61, 72, 61, 1);
   box-shadow: -3px 5px 56px -22px rgba(61, 72, 61, 1);
+
+  @media (max-width: ${tabletMax}px) {
+    padding: 16px 15px;
+  }
 
   @media (max-width: ${mobileMax}px) {
   }

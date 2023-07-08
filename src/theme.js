@@ -7,7 +7,8 @@ const colors = {
 const common = {
   breakpoints: {
     smallMobileMax: 600,
-    mobileMax: 767,
+    mobileMax: 768,
+    tabletMax: 1200,
   },
   boxShadow:
     "0px -2px 50px rgba(9, 10, 51, 0.02), 0px 16px 58px rgba(9, 10, 51, 0.03)",
@@ -23,3 +24,4 @@ export const themeDark = {
 
 export const mobileMax = ({ theme }) => theme.breakpoints.mobileMax;
 export const smallMobileMax = ({ theme }) => theme.breakpoints.smallMobileMax;
+export const tabletMax = ({ theme }) => theme.breakpoints.tabletMax;

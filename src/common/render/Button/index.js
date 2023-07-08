@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { mobileMax } from "../../../theme";
-import { smallMobileMax } from "../../../theme";
+import { smallMobileMax, mobileMax, tabletMax } from "../../../theme";
 
 export const Button = styled.button`
   max-height: 40px;
@@ -14,6 +13,11 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   display: flex;
+
+  @media (max-width: ${tabletMax}px) {
+    font-size: 16px;
+    padding: 20px;
+  }
 
   @media (max-width: ${mobileMax}px) {
   }

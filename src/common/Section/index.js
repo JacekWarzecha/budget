@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import { mobileMax } from "../../theme";
-import { smallMobileMax } from "../../theme";
+import { smallMobileMax, mobileMax, tabletMax } from "../../theme";
 
 export default styled.section`
   display: grid;
   grid-template-rows: auto auto;
   grid-gap: 25px;
   font-size: 22px;
+
+  @media (max-width: ${tabletMax}px) {
+    font-size: 20px;
+  }
 
   @media (max-width: ${mobileMax}px) {
     margin: 0;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { mobileMax } from "../../../theme";
-import { smallMobileMax } from "../../../theme";
+import { smallMobileMax, mobileMax, tabletMax } from "../../../theme";
 
 export const Input = styled.input`
   width: 100%;
@@ -24,6 +23,11 @@ export const Input = styled.input`
 
   &:hover {
     filter: brightness(115%);
+  }
+
+  @media (max-width: ${tabletMax}px) {
+    font-size: 16px;
+    padding: 20px;
   }
 
   @media (max-width: ${mobileMax}px) {

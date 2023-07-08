@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { smallMobileMax } from "../../theme";
+import { smallMobileMax, tabletMax } from "../../theme";
 import { mobileMax } from "../../theme";
 
 export const DataBox = styled.div`
@@ -44,6 +44,11 @@ export const ItemBox = styled.p`
   align-items: center;
   display: flex;
 
+  @media (max-width: ${tabletMax}px) {
+    font-size: 18px;
+    margin: 0 35px 0 0;
+  }
+
   @media (max-width: ${smallMobileMax}px) {
     margin: 0;
     font-size: 12px;
@@ -58,6 +63,10 @@ export const Value = styled.span`
 
   &:hover {
     filter: brightness(145%);
+  }
+
+  @media (max-width: ${tabletMax}px) {
+    font-size: 20px;
   }
 
   @media (max-width: ${smallMobileMax}px) {
