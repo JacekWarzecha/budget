@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobileMax, tabletMax } from "../../../theme";
+import { smallMobileMax, mobileMax, tabletMax } from "../../../theme";
 
 export const SubTitle = styled.h3`
   color: rgb(203, 175, 68);
@@ -15,5 +15,10 @@ export const SubTitle = styled.h3`
   @media (max-width: ${mobileMax}px) {
     font-size: 24px;
     margin: 0px 0px 16px;
+  }
+
+  @media (max-width: ${smallMobileMax}px) {
+    font-size: 20px;
+    margin: 0px 0px 6px;
   }
 `;

@@ -23,8 +23,6 @@ export const Button = styled.button`
   }
 
   @media (max-width: ${smallMobileMax}px) {
-    font-size: 12px;
-    padding: 6px;
   }
 
   &&:hover {

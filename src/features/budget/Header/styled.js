@@ -20,7 +20,7 @@ export const HeaderPage = styled.header`
   }
 
   @media (max-width: ${smallMobileMax}px) {
-    font-size: 20px;
+    font-size: 28px;
     padding: 14px 0 18px;
   }
 `;

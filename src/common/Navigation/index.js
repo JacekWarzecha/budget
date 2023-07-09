@@ -15,7 +15,7 @@ export const List = styled.ul`
   border-bottom: 1px solid rgb(141 112 2);
 
   @media (max-width: ${smallMobileMax}px) {
-    font-size: 14px;
+    font-size: 17px;
   }
 `;
 
@@ -45,6 +45,6 @@ export const StyledNavlink = styled(NavLink)`
   }
 
   @media (max-width: ${smallMobileMax}px) {
-    padding: 5px 10px;
+    padding: 6px 20px;
   }
 `;

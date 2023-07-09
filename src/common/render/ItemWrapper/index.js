@@ -14,7 +14,7 @@ export const ItemWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: center;
-    padding: 6px;
+    padding: 10px 6px 6px;
   }
 
   &:hover {

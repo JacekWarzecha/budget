@@ -51,7 +51,7 @@ export const ItemBox = styled.p`
 
   @media (max-width: ${smallMobileMax}px) {
     margin: 0;
-    font-size: 12px;
+    font-size: 16px;
     padding: 8px;
   }
 `;
@@ -71,7 +71,7 @@ export const Value = styled.span`
 
   @media (max-width: ${smallMobileMax}px) {
     margin-left: 0;
-    font-size: 14px;
+    font-size: 18px;
   }
 `;
 

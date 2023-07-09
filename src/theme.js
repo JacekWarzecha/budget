@@ -22,6 +22,6 @@ export const themeDark = {
   },
 };
 
+export const tabletMax = ({ theme }) => theme.breakpoints.tabletMax;
 export const mobileMax = ({ theme }) => theme.breakpoints.mobileMax;
 export const smallMobileMax = ({ theme }) => theme.breakpoints.smallMobileMax;
-export const tabletMax = ({ theme }) => theme.breakpoints.tabletMax;

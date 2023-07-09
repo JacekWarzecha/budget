@@ -21,10 +21,6 @@ export const Form = styled.form`
   }
 
   @media (max-width: ${smallMobileMax}px) {
-    margin: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     grid-gap: 10px;
     padding: 10px;
   }
