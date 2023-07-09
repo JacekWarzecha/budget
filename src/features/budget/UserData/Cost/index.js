@@ -44,16 +44,22 @@ export default () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(
-      addCost({
-        amount: +newCosts,
-        content: newCostsContent,
-        id: nanoid(),
-        date: new Date(),
-      })
-    );
-    setNewCosts("");
-    setnewCostsContent("");
+    const trimmedNewCostsContent = newCostsContent.trim();
+
+    if (trimmedNewCostsContent !== "") {
+      dispatch(
+        addCost({
+          amount: +newCosts,
+          content: trimmedNewCostsContent,
+          id: nanoid(),
+          date: new Date(),
+        })
+      );
+      setNewCosts("");
+      setnewCostsContent("");
+    } else {
+      alert("Wpisz nazwę kosztu");
+    }
   };
 
   useEffect(() => {

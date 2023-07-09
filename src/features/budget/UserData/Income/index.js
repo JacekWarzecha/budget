@@ -46,16 +46,22 @@ export const Income = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(
-      addIncome({
-        amount: +newIncome,
-        content: newIncomeContent,
-        id: nanoid(),
-        date: new Date(),
-      })
-    );
-    setNewIncomeContent("");
-    setNewIncome("");
+    const trimmedNewIncomeContent = newIncomeContent.trim();
+
+    if (trimmedNewIncomeContent !== "") {
+      dispatch(
+        addIncome({
+          amount: +newIncome,
+          content: trimmedNewIncomeContent,
+          id: nanoid(),
+          date: new Date(),
+        })
+      );
+      setNewIncomeContent("");
+      setNewIncome("");
+    } else {
+      alert("Wpisz nazwę przychodu");
+    }
   };
 
   useEffect(() => {
@@ -68,16 +74,16 @@ export const Income = () => {
         <SubTitle>Uzupełnij przychód</SubTitle>
         <InputContainer>
           <Input
+            min="1"
             value={newIncomeContent}
             onChange={onInputContentChange}
-            placeholder=" Nazwa przychodu"
-            required
+            placeholder="Nazwa przychodu"
           />
           <Input
             type="number"
             value={newIncome}
             onChange={onInputChange}
-            placeholder=" Wysokość przychodu"
+            placeholder="Wysokość przychodu"
             required
             pattern="[0-9]"
             step="1"
@@ -106,7 +112,6 @@ export const Income = () => {
             ➖
           </ButtonDelete>
         </Title>
-        {console.log(incomes)}
         {incomes?.map((income) => (
           <ItemWrapper key={income.id}>
             <Content>{income.content}</Content>

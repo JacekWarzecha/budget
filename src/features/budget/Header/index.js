@@ -40,6 +40,7 @@ export const Header = () => {
         </ItemBox>
         <ItemBox>
           <Button
+            disabled={incomes.length < 1}
             onClick={() =>
               dispatch(
                 addDataBase({
