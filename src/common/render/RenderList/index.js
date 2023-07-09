@@ -5,7 +5,6 @@ export const RenderList = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   padding: 15px;
-  text-align: center;
   background: #232423;
   border-radius: 4px;
   margin: 0 10px 60px;

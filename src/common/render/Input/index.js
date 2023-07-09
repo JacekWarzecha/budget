@@ -10,6 +10,7 @@ export const Input = styled.input`
   border: none;
   text-align: center;
   color: white;
+  font-style: italic;
   background: rgb(51, 68, 51);
   ::-webkit-input-placeholder {
     color: white;

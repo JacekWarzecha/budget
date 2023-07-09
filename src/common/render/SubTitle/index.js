@@ -6,6 +6,7 @@ export const SubTitle = styled.h3`
   margin: 10px 0 30px;
   text-align: center;
   font-size: 30px;
+  font-weight: normal;
 
   @media (max-width: ${tabletMax}px) {
     font-size: 26px;

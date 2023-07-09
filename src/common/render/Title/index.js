@@ -6,6 +6,7 @@ export const Title = styled.h2`
   justify-content: space-evenly;
   display: flex;
   color: rgb(203, 175, 68);
+  font-weight: normal;
 
   @media (max-width: ${tabletMax}px) {
     font-size: 26px;
