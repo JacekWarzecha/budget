@@ -2,41 +2,69 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectDataBaseState,
   deleteDataBase,
+  selectIncomesYearState,
+  selectIncomesYear,
+  calculateIncomesYear,
 } from "../../budget/Logic/dataBase/dataBaseSlice";
 import { DataBox, ItemBox, Value, Button } from "../../../common/Result";
 import { Wrapper } from "./styled";
 import { ButtonDelete } from "../../../common/render/Button";
+import { useEffect } from "react";
 
 export const Array = () => {
   const { dataBase } = useSelector(selectDataBaseState);
   const dispatch = useDispatch();
+  const { incomesYear } = useSelector(selectIncomesYearState);
   console.log(dataBase);
+  console.log(incomesYear);
+
+  useEffect(() => {
+    dispatch(calculateIncomesYear(dataBase));
+  }, [dispatch, dataBase]);
 
   return (
     <Wrapper>
+      <DataBox>
+        <ItemBox>
+          {dataBase.length >= 1
+            ? dataBase[0].date && new Date(dataBase[0].date).getFullYear()
+            : "Rok"}
+        </ItemBox>
+        <ItemBox>
+          Przychody: <Value>{incomesYear}</Value>
+        </ItemBox>
+        <ItemBox></ItemBox>
+        <ItemBox></ItemBox>
+      </DataBox>
       {dataBase?.map((data, { costsDataBase, incomesDataBase }) => (
-        <DataBox key={data.id} layout>
-          <ItemBox>
+        <DataBox key={data.id} layoutBox>
+          <ItemBox layout>
             {new Date(data.date).toLocaleDateString(undefined, {
               month: "long",
               year: "numeric",
             })}
           </ItemBox>
-          <ItemBox>
+
+          <ItemBox layout>
             Przychody:&nbsp;<Value>{data.incomesSum}</Value>
           </ItemBox>
-          <ItemBox>
+          <ItemBox layout>
             Koszty:&nbsp;<Value>{data.costsSum}</Value>
           </ItemBox>
-          <ItemBox>
+          <ItemBox layout>
             Bilans:&nbsp;<Value>{data.result}</Value>
           </ItemBox>
-          <ItemBox>
+          {/* <div>
+            {Object.values(dataBase[0].incomesDataBase || {}).map((element) => (
+              <ItemBox key={element.id}>{element.content}</ItemBox>
+            ))}
+          </div> */}
+          {/* <ItemBox>
             {incomesDataBase?.map((element) => element.content)}
           </ItemBox>
           <ItemBox>
             {Object.keys(costsDataBase || {}).map((element) => element.content)}
-          </ItemBox>
+          </ItemBox> */}
 
           {/* <ItemBox>
             {Object.keys(dataBase.incomesDataBase || {}).map((element) => (

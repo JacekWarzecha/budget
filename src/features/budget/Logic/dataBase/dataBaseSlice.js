@@ -6,6 +6,7 @@ const dataBaseSlice = createSlice({
   initialState: {
     dataBase: getDataBaseFromLocalStorage(),
     dataBaseIncomes: [],
+    incomesYear: +0,
   },
   reducers: {
     addDataBase: ({ dataBase }, { payload: data }) => {
@@ -15,27 +16,21 @@ const dataBaseSlice = createSlice({
       const index = dataBase.findIndex(({ id }) => id === dataBaseId);
       dataBase.splice(index, 1);
     },
-    addDataBaseIncomes: ({ dataBaseIncomes }, { payload: dataIncome }) => {
-      dataBaseIncomes.push(dataIncome);
+    calculateIncomesYear: (state, { payload: dataBase }) => {
+      state.incomesYear = dataBase.reduce((a, b) => (a = a + b.incomesSum), 0);
     },
+    // addDataBaseIncomes: ({ dataBaseIncomes }, { payload: dataIncome }) => {
+    //   dataBaseIncomes.push(dataIncome);
+    // },
   },
 });
 
-// addIncome: ({ incomes }, { payload: income }) => {
-//       incomes.push(income);
-//     },
-// arr.reduce((acc, curr) => acc + curr, 0);
-// calculateIncomesSum: (state, { payload: incomes }) => {
-//   state.incomesSum = incomes.reduce((a, b) => (a = a + b.amount), 0);
-
-// calculateResult: (state, { payload: incomesSum, costsSum }) => {
-//   state.result = state.result.reduce(
-//     (incomesSum, costsSum) => incomesSum - costsSum
-//   );
-// },
-
-export const { addDataBase, deleteDataBase, addDataBaseIncomes } =
-  dataBaseSlice.actions;
+export const {
+  addDataBase,
+  deleteDataBase,
+  calculateIncomesYear,
+  addDataBaseIncomes,
+} = dataBaseSlice.actions;
 
 export default dataBaseSlice.reducer;
 
@@ -45,3 +40,7 @@ export const selectDataBase = (state) => selectDataBaseState(state).dataBase;
 export const selectDataBaseIncomesState = (state) => state.dataBaseIncomes;
 export const selectDataBaseIncomes = (state) =>
   selectDataBaseIncomesState(state).dataBaseIncomes;
+
+export const selectIncomesYearState = (state) => state.incomesYear;
+export const selectIncomesYear = (state) =>
+  selectIncomesYearState(state).incomesYear;

@@ -63,6 +63,7 @@ export const Income = () => {
       alert("Wpisz nazwę przychodu");
     }
   };
+  console.log(incomes);
 
   useEffect(() => {
     dispatch(calculateIncomesSum(incomes));

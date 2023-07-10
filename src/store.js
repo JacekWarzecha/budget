@@ -16,6 +16,7 @@ const store = configureStore({
     costsSum: costsReducer,
     result: resultReducer,
     dataBase: dataBaseReducer,
+    incomesYear: dataBaseReducer,
     dataBaseIncomes: dataBaseReducer,
   },
   middleware: [sagaMiddleware],
