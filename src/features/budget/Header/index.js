@@ -27,7 +27,7 @@ export const Header = () => {
             })}
           </ItemBox>
         ) : (
-          ""
+          <ItemBox>Miesiąc</ItemBox>
         )}
         <ItemBox>
           Przychody:&nbsp;<Value>{incomesSum}</Value>
@@ -40,20 +40,27 @@ export const Header = () => {
         </ItemBox>
         <ItemBox>
           <Button
-            disabled={incomes.length < 1}
-            onClick={() =>
-              dispatch(
-                addDataBase({
-                  incomesDataBase: [...incomes],
-                  costsDataBase: { ...costs },
-                  incomesSum: incomesSum,
-                  costsSum: costsSum,
-                  result: result,
-                  date: incomes.length >= 1 ? incomes[0].date : "wpisz miesiąc",
-                  id: nanoid(),
-                })
-              )
-            }
+            // disabled={incomes.length < 1}
+            onClick={() => {
+              if (incomes.length >= 1) {
+                dispatch(
+                  addDataBase({
+                    incomesDataBase: [...incomes],
+                    costsDataBase: { ...costs },
+                    incomesSum: incomesSum,
+                    costsSum: costsSum,
+                    result: result,
+                    date:
+                      incomes.length >= 1 ? incomes[0].date : "wpisz miesiąc",
+                    id: nanoid(),
+                  })
+                );
+              } else {
+                alert(
+                  "Naciśnij jak chcesz zamknąć miesiąc. (Wymagana jest choćby jedna pozycja przychodu)"
+                );
+              }
+            }}
             title="Dodaj ostateczny bilans miesięczny do tablicy"
           >
             ➕
