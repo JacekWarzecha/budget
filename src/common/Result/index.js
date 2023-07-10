@@ -15,24 +15,18 @@ export const DataBox = styled.div`
     margin-bottom: 6px;
   }
 
-  ${({ layout }) =>
-    layout &&
+  ${({ layoutBox }) =>
+    layoutBox &&
     css`
-      box-shadow: none;
       border-bottom: 1px solid rgb(51, 68, 51);
-      display: grid;
-      grid-template-columns: 2fr 2fr 3fr 3fr 3fr 2fr;
+      display: flex;
+      justify-content: space-around;
 
-      @media (max-width: 800px) {
+      @media (max-width: ${mobileMax}px) {
         flex-wrap: wrap;
-        display: flex;
-        padding: 8px;
       }
 
       @media (max-width: ${smallMobileMax}px) {
-        flex-wrap: wrap;
-        display: flex;
-        padding: 8px;
       }
     `}
 `;
@@ -54,6 +48,22 @@ export const ItemBox = styled.p`
     font-size: 16px;
     padding: 8px;
   }
+
+  ${({ layout }) =>
+    layout &&
+    css`
+      margin: 0 50px;
+
+      @media (max-width: ${tabletMax}px) {
+        margin: 0 25px;
+      }
+
+      @media (max-width: ${smallMobileMax}px) {
+        flex-wrap: wrap;
+        display: flex;
+        margin: 0 15px;
+      }
+    `}
 `;
 
 export const Value = styled.span`
