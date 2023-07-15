@@ -7,6 +7,8 @@ const dataBaseSlice = createSlice({
     dataBase: getDataBaseFromLocalStorage(),
     dataBaseIncomes: [],
     incomesYear: +0,
+    costsYear: +0,
+    resultYear: +0,
   },
   reducers: {
     addDataBase: ({ dataBase }, { payload: data }) => {
@@ -19,6 +21,13 @@ const dataBaseSlice = createSlice({
     calculateIncomesYear: (state, { payload: dataBase }) => {
       state.incomesYear = dataBase.reduce((a, b) => (a = a + b.incomesSum), 0);
     },
+    calculateCostsYear: (state, { payload: dataBase }) => {
+      state.costsYear = dataBase.reduce((a, b) => (a = a + b.costsSum), 0);
+    },
+    calculateResultYear: (state, { payload }) => {
+      const { incomesYear, costsYear } = payload;
+      state.resultYear = incomesYear - costsYear;
+    },
     // addDataBaseIncomes: ({ dataBaseIncomes }, { payload: dataIncome }) => {
     //   dataBaseIncomes.push(dataIncome);
     // },
@@ -29,6 +38,8 @@ export const {
   addDataBase,
   deleteDataBase,
   calculateIncomesYear,
+  calculateCostsYear,
+  calculateResultYear,
   addDataBaseIncomes,
 } = dataBaseSlice.actions;
 
@@ -44,3 +55,8 @@ export const selectDataBaseIncomes = (state) =>
 export const selectIncomesYearState = (state) => state.incomesYear;
 export const selectIncomesYear = (state) =>
   selectIncomesYearState(state).incomesYear;
+
+export const selectCostsYearState = (state) => state.costsYear;
+export const selectCostsYear = (state) => selectCostsYearState(state).costsYear;
+
+export const selectResultYearState = (state) => state.resultYear;

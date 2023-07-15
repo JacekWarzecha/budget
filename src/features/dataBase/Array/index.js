@@ -1,10 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import {
-  selectDataBaseState,
+  selectDataBase,
   deleteDataBase,
   selectIncomesYearState,
-  selectIncomesYear,
   calculateIncomesYear,
+  selectCostsYearState,
+  calculateCostsYear,
+  selectResultYearState,
+  calculateResultYear,
 } from "../../budget/Logic/dataBase/dataBaseSlice";
 import { DataBox, ItemBox, Value, Button } from "../../../common/Result";
 import { Wrapper } from "./styled";
@@ -12,15 +15,30 @@ import { ButtonDelete } from "../../../common/render/Button";
 import { useEffect } from "react";
 
 export const Array = () => {
-  const { dataBase } = useSelector(selectDataBaseState);
+  const dataBase = useSelector(selectDataBase);
   const dispatch = useDispatch();
   const { incomesYear } = useSelector(selectIncomesYearState);
-  console.log(dataBase);
-  console.log(incomesYear);
+  const { costsYear } = useSelector(selectCostsYearState);
+  const { resultYear } = useSelector(selectResultYearState);
+
+  // const todo = useSelector((state) => state.todos[props.id]);
+  // console.log(dataBase);
+  // console.log(incomesYear);
+
+  // const incomesDataBase = useSelector(selectIncomesDataBase);
+  // console.log(incomesDataBase);
 
   useEffect(() => {
     dispatch(calculateIncomesYear(dataBase));
   }, [dispatch, dataBase]);
+
+  useEffect(() => {
+    dispatch(calculateCostsYear(dataBase));
+  }, [dispatch, dataBase]);
+
+  useEffect(() => {
+    dispatch(calculateResultYear({ incomesYear, costsYear }));
+  }, [dispatch, { incomesYear, costsYear }]);
 
   return (
     <Wrapper>
@@ -33,8 +51,12 @@ export const Array = () => {
         <ItemBox>
           Przychody: <Value>{incomesYear}</Value>
         </ItemBox>
-        <ItemBox></ItemBox>
-        <ItemBox></ItemBox>
+        <ItemBox>
+          Koszty: <Value>{costsYear}</Value>
+        </ItemBox>
+        <ItemBox>
+          Bilans:<Value>{resultYear}</Value>
+        </ItemBox>
       </DataBox>
       {dataBase?.map((data, { costsDataBase, incomesDataBase }) => (
         <DataBox key={data.id} layoutBox>
@@ -54,11 +76,11 @@ export const Array = () => {
           <ItemBox layout>
             Bilans:&nbsp;<Value>{data.result}</Value>
           </ItemBox>
-          {/* <div>
-            {Object.values(dataBase[0].incomesDataBase || {}).map((element) => (
+          <div>
+            {Object.values(dataBase.incomesDataBase || {}).map((element) => (
               <ItemBox key={element.id}>{element.content}</ItemBox>
             ))}
-          </div> */}
+          </div>
           {/* <ItemBox>
             {incomesDataBase?.map((element) => element.content)}
           </ItemBox>
