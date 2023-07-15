@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import incomesReducer from "./features/Logic/incomes/incomesSlice";
-import costsReducer from "./features/Logic/costs/costsSlice";
-import resultReducer from "./features/Logic/resultSlice";
-import dataBaseReducer from "./features/Logic/dataBase/dataBaseSlice";
+import incomesReducer from "../features/Logic/incomes/incomesSlice";
+import costsReducer from "../features/Logic/costs/costsSlice";
+import resultReducer from "../features/Logic/resultSlice";
+import dataBaseReducer from "../features/Logic/dataBase/dataBaseSlice";
 import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "./rootSaga";
 
