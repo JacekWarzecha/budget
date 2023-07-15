@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import {} from "../../Logic/costs/costsSlice";
+import {} from "../../../Logic/costs/costsSlice";
 import {
   addCost,
   deleteCost,
@@ -9,7 +9,7 @@ import {
   selectCostsSumState,
   calculateCostsSum,
   deleteCostsAll,
-} from "../../Logic/costs/costsSlice";
+} from "../../../Logic/costs/costsSlice";
 // import { List } from "./styled";
 import { Form } from "../../../../common/render/Form";
 import { Input } from "../../../../common/render/Input";

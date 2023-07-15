@@ -8,7 +8,7 @@ import {
   calculateCostsYear,
   selectResultYearState,
   calculateResultYear,
-} from "../../budget/Logic/dataBase/dataBaseSlice";
+} from "../../Logic/dataBase/dataBaseSlice";
 import { DataBox, ItemBox, Value, Button } from "../../../common/Result";
 import { Wrapper } from "./styled";
 import { ButtonDelete } from "../../../common/render/Button";
@@ -56,6 +56,9 @@ export const Array = () => {
         </ItemBox>
         <ItemBox>
           Bilans:<Value>{resultYear}</Value>
+        </ItemBox>
+        <ItemBox>
+          <Button>➕</Button>
         </ItemBox>
       </DataBox>
       {dataBase?.map((data, { costsDataBase, incomesDataBase }) => (

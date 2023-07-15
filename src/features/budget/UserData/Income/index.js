@@ -8,8 +8,8 @@ import {
   selectIncomes,
   selectIncomesSumState,
   deleteIncomesAll,
-} from "../../Logic/incomes/incomesSlice";
-import { addDataBaseIncomes } from "../../Logic/dataBase/dataBaseSlice";
+} from "../../../Logic/incomes/incomesSlice";
+import { addDataBaseIncomes } from "../../../Logic/dataBase/dataBaseSlice";
 import { Form } from "../../../../common/render/Form";
 import { Input } from "../../../../common/render/Input";
 import { Button, ButtonDelete } from "../../../../common/render/Button";
@@ -17,7 +17,6 @@ import { RenderList } from "../../../../common/render/RenderList";
 import { ItemEnd, ItemWrapper } from "../../../../common/render/ItemWrapper";
 import { Content } from "../../../../common/render/Content";
 import { Amount } from "../../../../common/render/Amount";
-import { fetchExampleIncomes } from "../../Logic/incomes/incomesSlice";
 import { DateAdded } from "../../../../common/render/DateAdded";
 import { Title } from "../../../../common/render/Title";
 import { Sum } from "../../../../common/render/Sum";

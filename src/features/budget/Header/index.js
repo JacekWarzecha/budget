@@ -1,10 +1,13 @@
 import { HeaderPage, Wrapper } from "./styled";
 import { DataBox, ItemBox, Value, Button } from "../../../common/Result";
 import { useSelector, useDispatch } from "react-redux";
-import { selectIncomesSum, selectIncomes } from "../Logic/incomes/incomesSlice";
-import { selectCostsSum, selectCosts } from "../Logic/costs/costsSlice";
-import { selectResultState } from "../Logic/resultSlice";
-import { addDataBase } from "../Logic/dataBase/dataBaseSlice";
+import {
+  selectIncomesSum,
+  selectIncomes,
+} from "../../Logic/incomes/incomesSlice";
+import { selectCostsSum, selectCosts } from "../../Logic/costs/costsSlice";
+import { selectResultState } from "../../Logic/resultSlice";
+import { addDataBase } from "../../Logic/dataBase/dataBaseSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
 export const Header = () => {
@@ -57,11 +60,11 @@ export const Header = () => {
                 );
               } else {
                 alert(
-                  "Naciśnij jak chcesz zamknąć miesiąc. (Wymagana jest choćby jedna pozycja przychodu)"
+                  "Naciśnij jeśli chcesz zamknąć miesiąc. (Wymagana jest choćby jedna pozycja przychodu)"
                 );
               }
             }}
-            title="Dodaj ostateczny bilans miesięczny do tablicy"
+            title="Dodaj ostateczny bilans do listy miesięcznej"
           >
             ➕
           </Button>
