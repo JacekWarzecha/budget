@@ -12,6 +12,7 @@ import {
 import { DataBox, ItemBox, Value, Button } from "../../../common/Result";
 import { Wrapper } from "./styled";
 import { ButtonDelete } from "../../../common/render/Button";
+import { addYearsList } from "../../Logic/yearsList/yearsListSlice";
 import { useEffect } from "react";
 
 export const Array = () => {
@@ -20,6 +21,39 @@ export const Array = () => {
   const { incomesYear } = useSelector(selectIncomesYearState);
   const { costsYear } = useSelector(selectCostsYearState);
   const { resultYear } = useSelector(selectResultYearState);
+  // console.log(dataBase.costsDataBase);
+  // console.log(dataBase.incomesDataBase);
+
+  // const Loop = () => {
+  //   for (const property in dataBase) {
+  //     console.log(dataBase[property]["costsDataBase"][property]);
+  //   }
+  // };
+
+  const Loop = () => {
+    for (const property in dataBase) {
+      console.log(dataBase[property].costsDataBase[property]);
+    }
+  };
+
+  for (const property in dataBase) {
+    console.log(dataBase[property].costsDataBase[property].date);
+  }
+
+  // Using array methods
+  // Object.entries(obj).forEach(([key, value]) => {
+  //   console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
+  // });
+
+  // for (const element of dataBase) {
+  //   console.log(element.costsDataBase.element);
+  // }
+
+  // console.log(dataBase);
+
+  // for (const property in dataBase) {
+  //   console.log(dataBase[property]["costsDataBase"][property]["content"]);
+  // }
 
   // const todo = useSelector((state) => state.todos[props.id]);
   // console.log(dataBase);
@@ -58,11 +92,26 @@ export const Array = () => {
           Bilans:<Value>{resultYear}</Value>
         </ItemBox>
         <ItemBox>
-          <Button>➕</Button>
+          <Button
+            onClick={() =>
+              dispatch(
+                addYearsList({
+                  incomesYear: incomesYear,
+                  costsYear: costsYear,
+                  resultYear: resultYear,
+                })
+              )
+            }
+          >
+            ➕
+          </Button>
         </ItemBox>
       </DataBox>
-      {dataBase?.map((data, { costsDataBase, incomesDataBase }) => (
+      {dataBase?.map((data) => (
         <DataBox key={data.id} layoutBox>
+          <ItemBox>
+            <button onClick={() => Loop()}>szczegóły</button>
+          </ItemBox>
           <ItemBox layout>
             {new Date(data.date).toLocaleDateString(undefined, {
               month: "long",
@@ -79,8 +128,13 @@ export const Array = () => {
           <ItemBox layout>
             Bilans:&nbsp;<Value>{data.result}</Value>
           </ItemBox>
-          <div>
+          {/* <div>
             {Object.values(dataBase.incomesDataBase || {}).map((element) => (
+              <ItemBox key={element.id}>{element.content}</ItemBox>
+            ))}
+          </div> */}
+          <div>
+            {Object.values(dataBase.costsDataBase || {}).map((element) => (
               <ItemBox key={element.id}>{element.content}</ItemBox>
             ))}
           </div>
@@ -133,7 +187,7 @@ export const Array = () => {
           </ButtonDelete>
         </DataBox>
       ))}
-      {console.log(dataBase)}
+      {/* {console.log(dataBase)} */}
 
       {/* {dataBase.DataIncomes.map((element) => (
         <p key={element.id}>{element.amount}</p>
