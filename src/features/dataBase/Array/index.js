@@ -30,15 +30,15 @@ export const Array = () => {
   //   }
   // };
 
-  const Loop = () => {
-    for (const property in dataBase) {
-      console.log(dataBase[property].costsDataBase[property]);
-    }
-  };
+  // const Loop = () => {
+  //   for (const property in dataBase) {
+  //     console.log(dataBase[property].costsDataBase[property]);
+  //   }
+  // };
 
-  for (const property in dataBase) {
-    console.log(dataBase[property].costsDataBase[property].date);
-  }
+  // for (const property in dataBase) {
+  //   console.log(dataBase[property].costsDataBase[property].date);
+  // }
 
   // Using array methods
   // Object.entries(obj).forEach(([key, value]) => {
@@ -109,9 +109,9 @@ export const Array = () => {
       </DataBox>
       {dataBase?.map((data) => (
         <DataBox key={data.id} layoutBox>
-          <ItemBox>
+          {/* <ItemBox>
             <button onClick={() => Loop()}>szczegóły</button>
-          </ItemBox>
+          </ItemBox> */}
           <ItemBox layout>
             {new Date(data.date).toLocaleDateString(undefined, {
               month: "long",
