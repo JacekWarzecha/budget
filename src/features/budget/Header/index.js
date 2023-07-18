@@ -17,20 +17,20 @@ export const Header = () => {
   const { result } = useSelector(selectResultState);
   const { costs } = useSelector(selectCosts);
   const dispatch = useDispatch();
-
+  console.log(incomes);
   return (
     <Wrapper>
       <HeaderPage>Poznaj swój budżet</HeaderPage>
       <DataBox>
         {incomes.length >= 1 ? (
-          <ItemBox>
+          <ItemBox firstColor>
             {new Date(incomes[0].date).toLocaleDateString(undefined, {
               month: "numeric",
               year: "numeric",
             })}
           </ItemBox>
         ) : (
-          <ItemBox>Miesiąc</ItemBox>
+          <ItemBox firstColor>Miesiąc</ItemBox>
         )}
         <ItemBox>
           Przychody:&nbsp;<Value>{incomesSum}</Value>
@@ -54,7 +54,9 @@ export const Header = () => {
                     costsSum: costsSum,
                     result: result,
                     date:
-                      incomes.length >= 1 ? incomes[0].date : "wpisz miesiąc",
+                      incomes.length >= 1
+                        ? new Date(incomes[0].date)
+                        : "wpisz miesiąc",
                     id: nanoid(),
                   })
                 );

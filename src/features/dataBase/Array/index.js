@@ -14,6 +14,7 @@ import { Wrapper } from "./styled";
 import { ButtonDelete } from "../../../common/render/Button";
 import { addYearsList } from "../../Logic/yearsList/yearsListSlice";
 import { useEffect } from "react";
+import { nanoid } from "@reduxjs/toolkit";
 
 export const Array = () => {
   const dataBase = useSelector(selectDataBase);
@@ -23,6 +24,7 @@ export const Array = () => {
   const { resultYear } = useSelector(selectResultYearState);
   // console.log(dataBase.costsDataBase);
   // console.log(dataBase.incomesDataBase);
+  console.log(dataBase);
 
   // const Loop = () => {
   //   for (const property in dataBase) {
@@ -46,7 +48,7 @@ export const Array = () => {
   // });
 
   // for (const element of dataBase) {
-  //   console.log(element.costsDataBase.element);
+  //   console.log(dataBase.element);
   // }
 
   // console.log(dataBase);
@@ -61,6 +63,50 @@ export const Array = () => {
 
   // const incomesDataBase = useSelector(selectIncomesDataBase);
   // console.log(incomesDataBase);
+
+  // dataBase.forEach((element) => {
+  //   for (let value in element) console.log(element[value]);
+  // });
+
+  // for (let element in Object.keys(dataBase.costsDataBase || {})) {
+  //   for (let key in dataBase.costsDataBase[element]) {
+  //     console.log(dataBase[element][key]);
+  //   }
+  // }
+
+  // for (let element in Object.keys(dataBase || {})) {
+  //   for (let key in dataBase[element]) {
+  //     console.log(dataBase[element][key]);
+  //   }
+  // }
+
+  // for (let element in Object.keys(dataBase || {})) {
+  //   for (let key in dataBase[element]) {
+  //     for (let e in dataBase[element].costsDataBase) {
+  //       console.log(dataBase[element][key][e]);
+  //     }
+  //   }
+  // }
+
+  // for (let prop in dataBase) {
+  //   if (Object.prototype.hasOwnProperty.call(dataBase, prop)) {
+  //     console.log(dataBase[prop].costsDataBase[prop].content);
+  //   }
+  // }
+
+  // Object.keys(dataBase).forEach((e) =>
+  //   console.log(`key=${e}  value=${dataBase[e].costsDataBase[e].amount}`)
+  // );
+
+  // const Looping = () => {
+  //   for (let element in Object.keys(dataBase || {})) {
+  //     {
+  //       console.log(dataBase[element]["costsDataBase"][element]);
+  //     }
+  //   }
+  // };
+
+  // Looping();
 
   useEffect(() => {
     dispatch(calculateIncomesYear(dataBase));
@@ -77,7 +123,7 @@ export const Array = () => {
   return (
     <Wrapper>
       <DataBox>
-        <ItemBox>
+        <ItemBox firstColor>
           {dataBase.length >= 1
             ? dataBase[0].date && new Date(dataBase[0].date).getFullYear()
             : "Rok"}
@@ -93,15 +139,21 @@ export const Array = () => {
         </ItemBox>
         <ItemBox>
           <Button
-            onClick={() =>
-              dispatch(
-                addYearsList({
-                  incomesYear: incomesYear,
-                  costsYear: costsYear,
-                  resultYear: resultYear,
-                })
-              )
-            }
+            onClick={() => {
+              if (dataBase.length >= 1) {
+                dispatch(
+                  addYearsList({
+                    dateYear: dataBase[0].date,
+                    incomesYear: incomesYear,
+                    costsYear: costsYear,
+                    resultYear: resultYear,
+                    id: nanoid(),
+                  })
+                );
+              } else {
+                alert("Naciśnij jeśli chcesz zamknąć dany rok");
+              }
+            }}
           >
             ➕
           </Button>
@@ -112,7 +164,7 @@ export const Array = () => {
           {/* <ItemBox>
             <button onClick={() => Loop()}>szczegóły</button>
           </ItemBox> */}
-          <ItemBox layout>
+          <ItemBox firstColor layout>
             {new Date(data.date).toLocaleDateString(undefined, {
               month: "long",
               year: "numeric",
@@ -138,6 +190,7 @@ export const Array = () => {
               <ItemBox key={element.id}>{element.content}</ItemBox>
             ))}
           </div>
+
           {/* <ItemBox>
             {incomesDataBase?.map((element) => element.content)}
           </ItemBox>

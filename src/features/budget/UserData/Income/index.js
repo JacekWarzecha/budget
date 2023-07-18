@@ -29,7 +29,7 @@ export const Income = () => {
   const dispatch = useDispatch();
   const { incomes } = useSelector(selectIncomes);
   const { incomesSum } = useSelector(selectIncomesSumState);
-
+  console.log(incomes);
   const [newIncomeContent, setNewIncomeContent] = useState("");
   const [newIncome, setNewIncome] = useState("");
 

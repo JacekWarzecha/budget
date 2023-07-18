@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getYearsListFromLocalStorage } from "./yearsListLocalStorage";
 
 const yearsListSlice = createSlice({
   name: "yearsList",
   initialState: {
-    yearsList: [],
+    yearsList: getYearsListFromLocalStorage(),
   },
   reducers: {
     addYearsList: ({ yearsList }, { payload: year }) => {
