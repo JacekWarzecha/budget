@@ -64,6 +64,12 @@ export const ItemBox = styled.p`
         margin: 0 15px;
       }
     `}
+
+  ${({ firstColor }) =>
+    firstColor &&
+    css`
+      color: silver;
+    `}
 `;
 
 export const Value = styled.span`
