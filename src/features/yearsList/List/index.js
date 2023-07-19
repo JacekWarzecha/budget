@@ -1,10 +1,15 @@
 import { DataBox, ItemBox, Value } from "../../../common/Result";
 import { Wrapper } from "./styled";
-import { selectYearsList } from "../../Logic/yearsList/yearsListSlice";
-import { useSelector } from "react-redux";
+import {
+  selectYearsList,
+  deleteYearsList,
+} from "../../Logic/yearsList/yearsListSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { ButtonDelete } from "../../../common/render/Button";
 
 export const List = () => {
   const yearsList = useSelector(selectYearsList);
+  const dispatch = useDispatch();
   console.log(yearsList);
 
   return (
@@ -22,6 +27,9 @@ export const List = () => {
             <ItemBox>
               Bilans: <Value>{e.resultYear}</Value>
             </ItemBox>
+            <ButtonDelete onClick={() => dispatch(deleteYearsList(e.id))}>
+              ➖
+            </ButtonDelete>
           </DataBox>
         ))}
     </Wrapper>

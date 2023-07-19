@@ -10,14 +10,14 @@ const yearsListSlice = createSlice({
     addYearsList: ({ yearsList }, { payload: year }) => {
       yearsList.push(year);
     },
-    deleteDataBase: ({ dataBase }, { payload: dataBaseId }) => {
-      const index = dataBase.findIndex(({ id }) => id === dataBaseId);
-      dataBase.splice(index, 1);
+    deleteYearsList: ({ yearsList }, { payload: yearsListId }) => {
+      const index = yearsList.findIndex(({ id }) => id === yearsListId);
+      yearsList.splice(index, 1);
     },
   },
 });
 
-export const { addYearsList } = yearsListSlice.actions;
+export const { addYearsList, deleteYearsList } = yearsListSlice.actions;
 
 export default yearsListSlice.reducer;
 
