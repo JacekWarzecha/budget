@@ -11,8 +11,8 @@ export const HeaderPage = styled.header`
   justify-content: center;
   padding: 25px 0;
   font-size: 46px;
-  color: ${turmeric};
-  background: rgb(35, 36, 35);
+  color: ${({ theme }) => theme.colors.bigBox.subTitle};
+  background: ${({ theme }) => theme.colors.bigBox.background};
   /* border-top: 1px solid rgb(141 112 2); */
 
   @media (max-width: ${tabletMax}px) {

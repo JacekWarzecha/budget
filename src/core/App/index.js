@@ -19,22 +19,22 @@ export const App = () => {
   const isWhiteTheme = useSelector(selectIsWhiteTheme);
 
   return (
-    <ThemeProvider theme={isWhiteTheme ? themeDark : themeLight}>
+    <ThemeProvider theme={isWhiteTheme ? themeLight : themeDark}>
       <GlobalStyle />
       <HashRouter>
         <Navigation>
           <List>
             <ListItem>
-              <StyledNavlink to="/day">lista codzienna</StyledNavlink>
-            </ListItem>
-            <ListItem>
-              <StyledNavlink to="/month">lista miesięczna</StyledNavlink>
-            </ListItem>
-            <ListItem>
-              <StyledNavlink to="/year">lista roczna</StyledNavlink>
-            </ListItem>
-            <ListItem>
               <ThemeSwitch></ThemeSwitch>
+            </ListItem>
+            <ListItem>
+              <StyledNavlink to="/day">Lista codzienna</StyledNavlink>
+            </ListItem>
+            <ListItem>
+              <StyledNavlink to="/month">Lista miesięczna</StyledNavlink>
+            </ListItem>
+            <ListItem>
+              <StyledNavlink to="/year">Lista roczna</StyledNavlink>
             </ListItem>
           </List>
           <Routes>

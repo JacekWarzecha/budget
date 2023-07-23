@@ -18,7 +18,7 @@ export const ItemWrapper = styled.div`
   }
 
   &:hover {
-    color: gold;
+    filter: brightness(120%);
   }
 `;
 

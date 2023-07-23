@@ -5,7 +5,7 @@ export const Form = styled.form`
   margin: 30px 10px;
   display: grid;
   grid-template-rows: auto auto;
-  background: rgb(35, 36, 35);
+  background: ${({ theme }) => theme.colors.bigBox.background};
   padding: 22px 15px;
   border-radius: 4px;
   -webkit-box-shadow: -3px 5px 56px -22px rgba(61, 72, 61, 1);

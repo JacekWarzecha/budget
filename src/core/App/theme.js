@@ -3,8 +3,14 @@ export const turmeric = () => themeDark.colors.primary;
 const colors = {
   white: "#ffffff",
   black: "#000000",
+  silver: "#ccc",
+  silverSolid: "#c0c0c0",
+  silverChalice: "#afafaf",
+  nobel: "#bbb8b8",
+  lunarGreen: "#334433",
   turmeric: "#cbaf44",
   heavyMetal: "#232423",
+  greenPea: "#1d5329",
 };
 
 const common = {
@@ -22,9 +28,19 @@ export const themeDark = {
   ...common,
   colors: {
     primary: colors.turmeric,
+    value: colors.turmeric,
+    date: colors.silverSolid,
     site: {
-      background: colors.white,
-      text: colors.black,
+      background: colors.lunarGreen,
+      text: colors.white,
+    },
+    bigBox: {
+      background: colors.heavyMetal,
+      subTitle: colors.turmeric,
+    },
+    smallBox: {
+      background: colors.lunarGreen,
+      text: colors.turmeric,
     },
   },
 };
@@ -33,8 +49,18 @@ export const themeLight = {
   ...common,
   colors: {
     primary: "nana",
+    value: colors.greenPea,
+    date: colors.greenPea,
     site: {
-      background: colors.white,
+      background: colors.silver,
+      text: colors.black,
+    },
+    bigBox: {
+      background: colors.silverChalice,
+      subTitle: colors.black,
+    },
+    smallBox: {
+      background: colors.nobel,
       text: colors.black,
     },
   },

@@ -9,17 +9,17 @@ export const Input = styled.input`
   border-radius: 4px;
   border: none;
   text-align: center;
-  color: white;
+  color: ${({ theme }) => theme.colors.site.text};
   font-style: italic;
-  background: rgb(51, 68, 51);
+  background: ${({ theme }) => theme.colors.smallBox.background};
   ::-webkit-input-placeholder {
-    color: white;
+    color: ${({ theme }) => theme.colors.site.text};
   }
   :-ms-input-placeholder {
-    color: white;
+    color: ${({ theme }) => theme.colors.site.text};
   }
   :-moz-placeholder {
-    color: white;
+    color: ${({ theme }) => theme.colors.site.text};
   }
 
   &:hover {

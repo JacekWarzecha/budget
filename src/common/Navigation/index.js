@@ -10,7 +10,7 @@ export const List = styled.ul`
   justify-content: center;
   align-items: center;
   padding-left: 0;
-  background: rgb(35, 36, 35);
+  background: ${({ theme }) => theme.colors.bigBox.background};
   margin: 0;
   font-size: 18px;
 
@@ -24,21 +24,27 @@ export const ListItem = styled.li`
   padding: 20px;
   margin: 8px 0;
 
+  @media (max-width: ${mobileMax}px) {
+    padding: 12px 5px;
+  }
+
   @media (max-width: ${smallMobileMax}px) {
     padding: 8px 14px;
     margin: 2px 0;
+    width: 100%;
+    text-align: center;
   }
 `;
 
 export const StyledNavlink = styled(NavLink)`
   text-decoration: none;
-  color: #cbaf44;
-  background: rgb(51, 68, 51);
+  color: ${({ theme }) => theme.colors.smallBox.text};
+  background: ${({ theme }) => theme.colors.smallBox.background};
   padding: 8px 60px;
   border-radius: 4px;
 
   &.active {
-    filter: brightness(155%);
+    filter: brightness(125%);
   }
 
   &:hover {
@@ -47,16 +53,15 @@ export const StyledNavlink = styled(NavLink)`
   }
 
   @media (max-width: ${tabletMax}px) {
-    padding: 8px 44px;
+    padding: 8px 20px;
   }
 
   @media (max-width: ${mobileMax}px) {
-    padding: 8px 20px;
+    padding: 8px 14px;
   }
 
   @media (max-width: ${smallMobileMax}px) {
     padding: 6px 20px;
     display: block;
-    text-align: center;
   }
 `;

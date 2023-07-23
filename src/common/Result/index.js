@@ -2,11 +2,14 @@ import styled, { css } from "styled-components";
 import { smallMobileMax, mobileMax, tabletMax } from "../../core/App/theme";
 
 export const DataBox = styled.div`
-  background: rgb(35, 36, 35);
+  background: ${({ theme }) => theme.colors.bigBox.background};
   padding: 8px 0 20px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  box-shadow: -3px 21px 35px -22px rgba(61, 72, 61, 1);
+  -webkit-box-shadow: -3px 21px 35px -22px rgba(61, 72, 61, 1);
+  -moz-box-shadow: -3px 21px 35px -22px rgba(61, 72, 61, 1);
 
   @media (max-width: ${mobileMax}px) {
     flex-wrap: wrap;
@@ -18,7 +21,7 @@ export const DataBox = styled.div`
   ${({ layoutBox }) =>
     layoutBox &&
     css`
-      border-bottom: 1px solid rgb(51, 68, 51);
+      /* border-bottom: 1px solid rgb(51, 68, 51); */
       display: flex;
       justify-content: space-around;
 
@@ -68,14 +71,14 @@ export const ItemBox = styled.p`
   ${({ firstColor }) =>
     firstColor &&
     css`
-      color: silver;
+      color: ${({ theme }) => theme.colors.date};
     `}
 `;
 
 export const Value = styled.span`
   font-size: 22px;
   margin-left: 5px;
-  color: rgb(203, 175, 68);
+  color: ${({ theme }) => theme.colors.value};
 
   &:hover {
     filter: brightness(145%);

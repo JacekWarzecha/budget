@@ -5,7 +5,7 @@ export const Title = styled.h2`
   font-size: 28px;
   justify-content: space-evenly;
   display: flex;
-  color: rgb(203, 175, 68);
+  color: ${({ theme }) => theme.colors.bigBox.subTitle};
   font-weight: normal;
 
   @media (max-width: ${tabletMax}px) {

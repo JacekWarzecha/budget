@@ -8,8 +8,8 @@ export const Button = styled.button`
   border-radius: 4px;
   border: none;
   padding: 30px;
-  background: rgb(51, 68, 51);
-  color: white;
+  background: ${({ theme }) => theme.colors.smallBox.background};
+  color: ${({ theme }) => theme.colors.site.text};
   align-items: center;
   justify-content: center;
   display: flex;

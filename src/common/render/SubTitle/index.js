@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { smallMobileMax, mobileMax, tabletMax } from "../../../core/App/theme";
 
 export const SubTitle = styled.h3`
-  color: rgb(203, 175, 68);
+  color: ${({ theme }) => theme.colors.bigBox.subTitle};
   margin: 10px 0 30px;
   text-align: center;
   font-size: 30px;

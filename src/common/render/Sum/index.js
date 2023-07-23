@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Sum = styled.span`
-  color: rgb(203, 175, 68);
+  color: ${({ theme }) => theme.colors.value};
   font-weight: normal;
 
   &:hover {

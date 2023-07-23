@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 export const ThemeSwitch = () => {
   const dispatch = useDispatch();
-  const theme = useSelector(selectIsWhiteTheme);
-  console.log(theme);
+  const isWhiteTheme = useSelector(selectIsWhiteTheme);
+  console.log(isWhiteTheme);
   return (
     <Wrapper>
       <Button onClick={() => dispatch(switchTheme())}>
-        Mode:&nbsp;{theme ? "🕶️" : "☀️"}
+        Mode:&nbsp;{isWhiteTheme ? "🕶️" : "☀️"}
       </Button>
     </Wrapper>
   );
