@@ -39,8 +39,33 @@ export const Array = () => {
   // };
 
   // for (const property in dataBase) {
-  //   console.log(dataBase[property].costsDataBase[property].date);
+  //   for (const propertySecond in property)
+  //     for (const propertyThird in propertySecond)
+  //       console.log(dataBase[property][propertySecond]["content"]);
   // }
+
+  // const obiekt = [
+  //   {
+  //     props: { pierwsza: "nanan", druga: 255 },
+  //     props2: { pierwsza: "blabla", druga: 455 },
+  //   },
+  // ];
+
+  // for (const propix in dataBase) {
+  //   console.log(dataBase[propix][propix]);
+  // }
+
+  // const funkcja = () => {
+  //   for (const prop in obiekt) {
+  //     obiekt[prop].pierwsza + ",," + obiekt[prop].druga;
+  //   }
+  // };
+
+  // const funkcja = () => {
+  //   for (const prop in obiekt) {
+  //     console.log(obiekt[prop].pierwsza + ",," + obiekt[prop].druga);
+  //   }
+  // };
 
   // Using array methods
   // Object.entries(obj).forEach(([key, value]) => {
@@ -122,6 +147,8 @@ export const Array = () => {
 
   return (
     <Wrapper>
+      {/* <button onClick={() => funkcja()}>tutaj</button> */}
+      {/* {obiekt.map(({ pierwsza, druga }) => (<div key={pierwsza}>{[pierwsza]: druga })</div>))} */}
       <DataBox>
         <ItemBox firstColor>
           {dataBase.length >= 1

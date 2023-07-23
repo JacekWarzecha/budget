@@ -1,7 +1,10 @@
 export const turmeric = () => themeDark.colors.primary;
 
 const colors = {
+  white: "#ffffff",
+  black: "#000000",
   turmeric: "#cbaf44",
+  heavyMetal: "#232423",
 };
 
 const common = {
@@ -19,6 +22,21 @@ export const themeDark = {
   ...common,
   colors: {
     primary: colors.turmeric,
+    site: {
+      background: colors.white,
+      text: colors.black,
+    },
+  },
+};
+
+export const themeLight = {
+  ...common,
+  colors: {
+    primary: "nana",
+    site: {
+      background: colors.white,
+      text: colors.black,
+    },
   },
 };
 

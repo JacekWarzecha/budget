@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { smallMobileMax, tabletMax, turmeric } from "../../../theme";
+import { smallMobileMax, tabletMax, turmeric } from "../../../core/App/theme";
 
 export const Wrapper = styled.div`
   display: flex;

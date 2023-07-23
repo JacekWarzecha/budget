@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { smallMobileMax, mobileMax, tabletMax } from "../../theme";
+import { smallMobileMax, mobileMax, tabletMax } from "../../core/App/theme";
 
 export const DataBox = styled.div`
   background: rgb(35, 36, 35);

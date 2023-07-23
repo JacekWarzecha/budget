@@ -49,7 +49,7 @@ export const Header = () => {
                 dispatch(
                   addDataBase({
                     incomesDataBase: [...incomes],
-                    costsDataBase: { ...costs },
+                    ...costs,
                     incomesSum: incomesSum,
                     costsSum: costsSum,
                     result: result,

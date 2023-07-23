@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { smallMobileMax } from "../../../theme";
+import { smallMobileMax } from "../../../core/App/theme";
 
 export const DateAdded = styled.p`
   margin: 0;

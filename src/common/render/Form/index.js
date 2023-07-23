@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { smallMobileMax, mobileMax, tabletMax } from "../../../theme";
+import { smallMobileMax, mobileMax, tabletMax } from "../../../core/App/theme";
 
 export const Form = styled.form`
   margin: 30px 10px;

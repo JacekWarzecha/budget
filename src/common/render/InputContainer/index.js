@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobileMax } from "../../../theme";
+import { mobileMax } from "../../../core/App/theme";
 
 export const InputContainer = styled.div`
   grid-template-columns: 1fr 1fr 1fr;

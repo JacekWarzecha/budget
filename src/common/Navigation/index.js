@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { mobileMax, smallMobileMax, tabletMax } from "../../theme";
+import { mobileMax, smallMobileMax, tabletMax } from "../../core/App/theme";
 
 export const Navigation = styled.nav``;
 
@@ -8,11 +8,11 @@ export const List = styled.ul`
   display: flex;
   list-style: none;
   justify-content: center;
+  align-items: center;
   padding-left: 0;
   background: rgb(35, 36, 35);
   margin: 0;
   font-size: 18px;
-  border-bottom: 1px solid rgb(141 112 2);
 
   @media (max-width: ${smallMobileMax}px) {
     font-size: 17px;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { smallMobileMax, mobileMax, tabletMax } from "../../../theme";
+import { smallMobileMax, mobileMax, tabletMax } from "../../../core/App/theme";
 
 export const SubTitle = styled.h3`
   color: rgb(203, 175, 68);
