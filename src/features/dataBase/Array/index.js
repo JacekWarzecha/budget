@@ -156,13 +156,13 @@ export const Array = () => {
             : "Rok"}
         </ItemBox>
         <ItemBox>
-          Przychody: <Value>{incomesYear}</Value>
+          Przychody:&nbsp;<Value>{incomesYear}</Value>
         </ItemBox>
         <ItemBox>
-          Koszty: <Value>{costsYear}</Value>
+          Koszty:&nbsp;<Value>{costsYear}</Value>
         </ItemBox>
         <ItemBox>
-          Bilans:<Value>{resultYear}</Value>
+          Bilans:&nbsp;<Value>{resultYear}</Value>
         </ItemBox>
         <ItemBox>
           <Button
@@ -212,11 +212,11 @@ export const Array = () => {
               <ItemBox key={element.id}>{element.content}</ItemBox>
             ))}
           </div> */}
-          <div>
+          {/* <div>
             {Object.values(dataBase.costsDataBase || {}).map((element) => (
               <ItemBox key={element.id}>{element.content}</ItemBox>
             ))}
-          </div>
+          </div> */}
 
           {/* <ItemBox>
             {incomesDataBase?.map((element) => element.content)}

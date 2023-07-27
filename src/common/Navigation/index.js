@@ -9,7 +9,7 @@ export const List = styled.ul`
   list-style: none;
   justify-content: center;
   align-items: center;
-  padding-left: 0;
+  padding: 0 0 10px;
   background: ${({ theme }) => theme.colors.bigBox.background};
   margin: 0;
   font-size: 18px;

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 export const HeaderPage = styled.header`
   display: flex;
   justify-content: center;
-  padding: 25px 0;
+  padding: 20px 0;
   font-size: 46px;
   color: ${({ theme }) => theme.colors.bigBox.subTitle};
   background: ${({ theme }) => theme.colors.bigBox.background};

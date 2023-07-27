@@ -3,10 +3,11 @@ import { smallMobileMax, mobileMax, tabletMax } from "../../core/App/theme";
 
 export const DataBox = styled.div`
   background: ${({ theme }) => theme.colors.bigBox.background};
-  padding: 8px 0 20px;
+  padding: 20px 0 20px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
   box-shadow: -3px 21px 35px -22px rgba(61, 72, 61, 1);
   -webkit-box-shadow: -3px 21px 35px -22px rgba(61, 72, 61, 1);
   -moz-box-shadow: -3px 21px 35px -22px rgba(61, 72, 61, 1);
@@ -14,23 +15,32 @@ export const DataBox = styled.div`
   @media (max-width: ${mobileMax}px) {
     flex-wrap: wrap;
     justify-content: center;
-    padding: 0 0 5px;
-    margin-bottom: 6px;
+    padding: 14px 0;
+    margin-bottom: 20px;
   }
 
   ${({ layoutBox }) =>
     layoutBox &&
     css`
       /* border-bottom: 1px solid rgb(51, 68, 51); */
-      display: flex;
-      justify-content: space-around;
+      display: grid;
+      grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
 
       @media (max-width: ${mobileMax}px) {
+        display: flex;
         flex-wrap: wrap;
       }
 
       @media (max-width: ${smallMobileMax}px) {
+        display: flex;
+        flex-wrap: wrap;
       }
+    `}
+
+  ${({ marginTop }) =>
+    marginTop &&
+    css`
+      margin-top: 20px;
     `}
 `;
 
@@ -43,7 +53,8 @@ export const ItemBox = styled.p`
 
   @media (max-width: ${tabletMax}px) {
     font-size: 18px;
-    margin: 0 35px 0 0;
+    margin: 0 14px 0 14px;
+    padding: 4px;
   }
 
   @media (max-width: ${smallMobileMax}px) {
@@ -55,10 +66,14 @@ export const ItemBox = styled.p`
   ${({ layout }) =>
     layout &&
     css`
-      margin: 0 50px;
+      margin: 0 30px;
 
       @media (max-width: ${tabletMax}px) {
-        margin: 0 25px;
+        margin: 0 5px;
+      }
+
+      @media (max-width: ${mobileMax}px) {
+        margin: 0 16px;
       }
 
       @media (max-width: ${smallMobileMax}px) {
